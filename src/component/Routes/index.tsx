@@ -3,7 +3,7 @@ import Home from '../Home'
 import Bibliotheque from '../Bibliotheque'
 import { ROUTES } from '../../constants'
 
-const Page = () => {
+const Page = (): JSX.Element => {
   return (
     <Routes>
       <Route path={ROUTES.HOME} element={<Home />} />

@@ -8,7 +8,7 @@ type Props = {
   user: Record<string, unknown>
 }
 
-function App({ signOut, user }: Props): JSX.Element {
+function App({ signOut }: Props): JSX.Element {
   return (
     <div className="App">
       <h1>Fabulas</h1>

@@ -1,7 +1,7 @@
 import { NavLink } from 'react-router-dom'
 import { ROUTES } from '../../constants'
 
-const Header = () => {
+const Header = (): JSX.Element => {
   return (
     <header>
       <nav>

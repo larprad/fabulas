@@ -1,4 +1,4 @@
-const Biblotheque = () => {
+const Biblotheque = (): JSX.Element => {
   return (
     <div>
       <h2>Biblotheque page</h2>
