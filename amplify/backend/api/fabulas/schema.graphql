@@ -1,6 +1,14 @@
+type Block @model @auth(rules: [{allow: public}]) @key(name: "byStory", fields: ["storyID"]) {
+  id: ID!
+  name: String
+  description: String
+  storyID: ID
+}
+
 type Story @model @auth(rules: [{allow: public}]) {
   id: ID!
   name: String!
   description: String
+  Blocks: [Block] @connection(keyName: "byStory", fields: ["id"])
 }
  

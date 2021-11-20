@@ -15,6 +15,8 @@ const Biblotheque = (): JSX.Element => {
     }
   }
 
+  console.log(stories)
+
   useEffect(() => {fetchStories()}, [])
   
   return (
