@@ -16,10 +16,11 @@ const Biblotheque = (): JSX.Element => {
   }
 
   useEffect(() => {fetchStories()}, [])
-  console.log(stories)
+  
   return (
     <div>
-      <h2>Biblotheque page</h2>
+      <h2>Biblotheque</h2>
+      {stories?.listStorys?.items.map(story => <li key={story.id}>{story.name} : {story.description}</li>)}
     </div>
   )
 }
