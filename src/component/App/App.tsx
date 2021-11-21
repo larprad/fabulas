@@ -1,13 +1,11 @@
-import Header from '../Header'
+import Layout from '../Layout'
 import Page from '../Routes'
 
 function App(): JSX.Element {
   return (
-    <div className="App">
-      <h1>Fabulas</h1>
-      <Header />
+    <Layout>
       <Page />
-    </div>
+    </Layout>
   )
 }
 
