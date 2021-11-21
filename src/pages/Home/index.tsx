@@ -1,5 +1,7 @@
+import Heading from '../../component/Heading'
+
 const Home = (): JSX.Element => {
-  return <h2 className="text-xl font-bold text-center py-3">Home</h2>
+  return <Heading title="Home" />
 }
 
 export default Home

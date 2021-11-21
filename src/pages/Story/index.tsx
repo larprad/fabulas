@@ -1,5 +1,6 @@
 import { useGetStory } from '../../hooks/useDataQuery'
 import { useParams } from 'react-router-dom'
+import Heading from '../../component/Heading'
 
 const Story = (): JSX.Element => {
   const { id = '' } = useParams()
@@ -10,7 +11,7 @@ const Story = (): JSX.Element => {
   if (isLoading) {
     return (
       <div className="text-center">
-        <h2 className="text-xl font-bold  pt-3 pb-6">Story</h2>
+        <Heading title="Histoire" />
         <h3 className="text-xl py-3">Loading...</h3>
       </div>
     )
@@ -19,8 +20,8 @@ const Story = (): JSX.Element => {
   if (!story) {
     return (
       <div className="text-center">
-        <h2 className="text-xl font-bold  pt-3 pb-6">Story</h2>
-        <h3 className="text-xl py-3">Oh Oh! Pas aucune histoires par ici...</h3>
+        <Heading title="Histoire" />
+        <h3 className="text-xl py-3">Oupsy ! Aucune histoires par ici...</h3>
       </div>
     )
   }
@@ -28,7 +29,7 @@ const Story = (): JSX.Element => {
   if (isError) {
     return (
       <div className="text-center">
-        <h2 className="text-xl font-bold  pt-3 pb-6">Story</h2>
+        <Heading title="Histoire" />
         <h3 className="text-xl text-red  py-3">Error!</h3>
       </div>
     )
@@ -38,7 +39,7 @@ const Story = (): JSX.Element => {
 
   return (
     <div className="text-center">
-      <h2 className="text-xl font-bold pt-3 pb-6">Story</h2>
+      <Heading title="Histoire" />
       <h3 className="text-xl py-3">{name}</h3>
       <p className="py-3">{description}</p>
     </div>

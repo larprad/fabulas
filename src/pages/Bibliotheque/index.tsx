@@ -1,3 +1,4 @@
+import Heading from '../../component/Heading'
 import StoryCard from '../../component/StoryCard'
 import { useGetStories } from '../../hooks/useDataQuery'
 
@@ -9,7 +10,7 @@ const Biblotheque = (): JSX.Element => {
   if (isLoading) {
     return (
       <div>
-        <h2 className="text-xl font-bold text-center py-3">Biblotheque</h2>
+        <Heading title="Biblotheque" />
         <p>Loading...</p>
       </div>
     )
@@ -18,7 +19,7 @@ const Biblotheque = (): JSX.Element => {
   if (isError) {
     return (
       <div>
-        <h2 className="text-xl font-bold text-center py-3">Biblotheque</h2>
+        <Heading title="Biblotheque" />
         <p className="text-red">Error!</p>
       </div>
     )
@@ -26,7 +27,7 @@ const Biblotheque = (): JSX.Element => {
 
   return (
     <div>
-      <h2 className="text-xl font-bold text-center pt-3 pb-6">Biblotheque</h2>
+      <Heading title="Biblotheque" />
       <div className="flex flex-wrap gap-3">
         {stories?.listStorys?.items.map((story) => (
           <StoryCard key={story.id} {...story} />
