@@ -2,6 +2,51 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
+export const onCreateBlock = /* GraphQL */ `
+  subscription OnCreateBlock {
+    onCreateBlock {
+      id
+      name
+      description
+      storyID
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onUpdateBlock = /* GraphQL */ `
+  subscription OnUpdateBlock {
+    onUpdateBlock {
+      id
+      name
+      description
+      storyID
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onDeleteBlock = /* GraphQL */ `
+  subscription OnDeleteBlock {
+    onDeleteBlock {
+      id
+      name
+      description
+      storyID
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+    }
+  }
+`;
 export const onCreateStory = /* GraphQL */ `
   subscription OnCreateStory {
     onCreateStory {
@@ -13,6 +58,10 @@ export const onCreateStory = /* GraphQL */ `
       _lastChangedAt
       createdAt
       updatedAt
+      Blocks {
+        nextToken
+        startedAt
+      }
     }
   }
 `;
@@ -27,6 +76,10 @@ export const onUpdateStory = /* GraphQL */ `
       _lastChangedAt
       createdAt
       updatedAt
+      Blocks {
+        nextToken
+        startedAt
+      }
     }
   }
 `;
@@ -41,6 +94,10 @@ export const onDeleteStory = /* GraphQL */ `
       _lastChangedAt
       createdAt
       updatedAt
+      Blocks {
+        nextToken
+        startedAt
+      }
     }
   }
 `;
