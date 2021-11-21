@@ -6,13 +6,38 @@ export const getChoice = /* GraphQL */ `
   query GetChoice($id: ID!) {
     getChoice(id: $id) {
       id
-      nam
+      name
       blockID
       _version
       _deleted
       _lastChangedAt
       createdAt
       updatedAt
+      nextBlock {
+        id
+        name
+        description
+        storyID
+        _version
+        _deleted
+        _lastChangedAt
+        createdAt
+        updatedAt
+        choices {
+          items {
+            id
+            name
+            blockID
+            _version
+            _deleted
+            _lastChangedAt
+            createdAt
+            updatedAt
+          }
+          nextToken
+          startedAt
+        }
+      }
     }
   }
 `;
@@ -25,13 +50,28 @@ export const listChoices = /* GraphQL */ `
     listChoices(filter: $filter, limit: $limit, nextToken: $nextToken) {
       items {
         id
-        nam
+        name
         blockID
         _version
         _deleted
         _lastChangedAt
         createdAt
         updatedAt
+        nextBlock {
+          id
+          name
+          description
+          storyID
+          _version
+          _deleted
+          _lastChangedAt
+          createdAt
+          updatedAt
+          choices {
+            nextToken
+            startedAt
+          }
+        }
       }
       nextToken
       startedAt
@@ -53,13 +93,28 @@ export const syncChoices = /* GraphQL */ `
     ) {
       items {
         id
-        nam
+        name
         blockID
         _version
         _deleted
         _lastChangedAt
         createdAt
         updatedAt
+        nextBlock {
+          id
+          name
+          description
+          storyID
+          _version
+          _deleted
+          _lastChangedAt
+          createdAt
+          updatedAt
+          choices {
+            nextToken
+            startedAt
+          }
+        }
       }
       nextToken
       startedAt
@@ -81,13 +136,24 @@ export const getBlock = /* GraphQL */ `
       choices {
         items {
           id
-          nam
+          name
           blockID
           _version
           _deleted
           _lastChangedAt
           createdAt
           updatedAt
+          nextBlock {
+            id
+            name
+            description
+            storyID
+            _version
+            _deleted
+            _lastChangedAt
+            createdAt
+            updatedAt
+          }
         }
         nextToken
         startedAt
@@ -115,7 +181,7 @@ export const listBlocks = /* GraphQL */ `
         choices {
           items {
             id
-            nam
+            name
             blockID
             _version
             _deleted
@@ -158,7 +224,7 @@ export const syncBlocks = /* GraphQL */ `
         choices {
           items {
             id
-            nam
+            name
             blockID
             _version
             _deleted

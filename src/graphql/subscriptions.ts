@@ -6,13 +6,38 @@ export const onCreateChoice = /* GraphQL */ `
   subscription OnCreateChoice {
     onCreateChoice {
       id
-      nam
+      name
       blockID
       _version
       _deleted
       _lastChangedAt
       createdAt
       updatedAt
+      nextBlock {
+        id
+        name
+        description
+        storyID
+        _version
+        _deleted
+        _lastChangedAt
+        createdAt
+        updatedAt
+        choices {
+          items {
+            id
+            name
+            blockID
+            _version
+            _deleted
+            _lastChangedAt
+            createdAt
+            updatedAt
+          }
+          nextToken
+          startedAt
+        }
+      }
     }
   }
 `;
@@ -20,13 +45,38 @@ export const onUpdateChoice = /* GraphQL */ `
   subscription OnUpdateChoice {
     onUpdateChoice {
       id
-      nam
+      name
       blockID
       _version
       _deleted
       _lastChangedAt
       createdAt
       updatedAt
+      nextBlock {
+        id
+        name
+        description
+        storyID
+        _version
+        _deleted
+        _lastChangedAt
+        createdAt
+        updatedAt
+        choices {
+          items {
+            id
+            name
+            blockID
+            _version
+            _deleted
+            _lastChangedAt
+            createdAt
+            updatedAt
+          }
+          nextToken
+          startedAt
+        }
+      }
     }
   }
 `;
@@ -34,13 +84,38 @@ export const onDeleteChoice = /* GraphQL */ `
   subscription OnDeleteChoice {
     onDeleteChoice {
       id
-      nam
+      name
       blockID
       _version
       _deleted
       _lastChangedAt
       createdAt
       updatedAt
+      nextBlock {
+        id
+        name
+        description
+        storyID
+        _version
+        _deleted
+        _lastChangedAt
+        createdAt
+        updatedAt
+        choices {
+          items {
+            id
+            name
+            blockID
+            _version
+            _deleted
+            _lastChangedAt
+            createdAt
+            updatedAt
+          }
+          nextToken
+          startedAt
+        }
+      }
     }
   }
 `;
@@ -59,13 +134,24 @@ export const onCreateBlock = /* GraphQL */ `
       choices {
         items {
           id
-          nam
+          name
           blockID
           _version
           _deleted
           _lastChangedAt
           createdAt
           updatedAt
+          nextBlock {
+            id
+            name
+            description
+            storyID
+            _version
+            _deleted
+            _lastChangedAt
+            createdAt
+            updatedAt
+          }
         }
         nextToken
         startedAt
@@ -88,13 +174,24 @@ export const onUpdateBlock = /* GraphQL */ `
       choices {
         items {
           id
-          nam
+          name
           blockID
           _version
           _deleted
           _lastChangedAt
           createdAt
           updatedAt
+          nextBlock {
+            id
+            name
+            description
+            storyID
+            _version
+            _deleted
+            _lastChangedAt
+            createdAt
+            updatedAt
+          }
         }
         nextToken
         startedAt
@@ -117,13 +214,24 @@ export const onDeleteBlock = /* GraphQL */ `
       choices {
         items {
           id
-          nam
+          name
           blockID
           _version
           _deleted
           _lastChangedAt
           createdAt
           updatedAt
+          nextBlock {
+            id
+            name
+            description
+            storyID
+            _version
+            _deleted
+            _lastChangedAt
+            createdAt
+            updatedAt
+          }
         }
         nextToken
         startedAt

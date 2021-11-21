@@ -9,13 +9,38 @@ export const createChoice = /* GraphQL */ `
   ) {
     createChoice(input: $input, condition: $condition) {
       id
-      nam
+      name
       blockID
       _version
       _deleted
       _lastChangedAt
       createdAt
       updatedAt
+      nextBlock {
+        id
+        name
+        description
+        storyID
+        _version
+        _deleted
+        _lastChangedAt
+        createdAt
+        updatedAt
+        choices {
+          items {
+            id
+            name
+            blockID
+            _version
+            _deleted
+            _lastChangedAt
+            createdAt
+            updatedAt
+          }
+          nextToken
+          startedAt
+        }
+      }
     }
   }
 `;
@@ -26,13 +51,38 @@ export const updateChoice = /* GraphQL */ `
   ) {
     updateChoice(input: $input, condition: $condition) {
       id
-      nam
+      name
       blockID
       _version
       _deleted
       _lastChangedAt
       createdAt
       updatedAt
+      nextBlock {
+        id
+        name
+        description
+        storyID
+        _version
+        _deleted
+        _lastChangedAt
+        createdAt
+        updatedAt
+        choices {
+          items {
+            id
+            name
+            blockID
+            _version
+            _deleted
+            _lastChangedAt
+            createdAt
+            updatedAt
+          }
+          nextToken
+          startedAt
+        }
+      }
     }
   }
 `;
@@ -43,13 +93,38 @@ export const deleteChoice = /* GraphQL */ `
   ) {
     deleteChoice(input: $input, condition: $condition) {
       id
-      nam
+      name
       blockID
       _version
       _deleted
       _lastChangedAt
       createdAt
       updatedAt
+      nextBlock {
+        id
+        name
+        description
+        storyID
+        _version
+        _deleted
+        _lastChangedAt
+        createdAt
+        updatedAt
+        choices {
+          items {
+            id
+            name
+            blockID
+            _version
+            _deleted
+            _lastChangedAt
+            createdAt
+            updatedAt
+          }
+          nextToken
+          startedAt
+        }
+      }
     }
   }
 `;
@@ -71,13 +146,24 @@ export const createBlock = /* GraphQL */ `
       choices {
         items {
           id
-          nam
+          name
           blockID
           _version
           _deleted
           _lastChangedAt
           createdAt
           updatedAt
+          nextBlock {
+            id
+            name
+            description
+            storyID
+            _version
+            _deleted
+            _lastChangedAt
+            createdAt
+            updatedAt
+          }
         }
         nextToken
         startedAt
@@ -103,13 +189,24 @@ export const updateBlock = /* GraphQL */ `
       choices {
         items {
           id
-          nam
+          name
           blockID
           _version
           _deleted
           _lastChangedAt
           createdAt
           updatedAt
+          nextBlock {
+            id
+            name
+            description
+            storyID
+            _version
+            _deleted
+            _lastChangedAt
+            createdAt
+            updatedAt
+          }
         }
         nextToken
         startedAt
@@ -135,13 +232,24 @@ export const deleteBlock = /* GraphQL */ `
       choices {
         items {
           id
-          nam
+          name
           blockID
           _version
           _deleted
           _lastChangedAt
           createdAt
           updatedAt
+          nextBlock {
+            id
+            name
+            description
+            storyID
+            _version
+            _deleted
+            _lastChangedAt
+            createdAt
+            updatedAt
+          }
         }
         nextToken
         startedAt

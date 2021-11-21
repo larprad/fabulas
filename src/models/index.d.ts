@@ -18,8 +18,9 @@ type StoryMetaData = {
 
 export declare class Choice {
   readonly id: string;
-  readonly nam?: string;
+  readonly name?: string;
   readonly blockID?: string;
+  readonly nextBlock?: Block;
   readonly createdAt?: string;
   readonly updatedAt?: string;
   constructor(init: ModelInit<Choice, ChoiceMetaData>);

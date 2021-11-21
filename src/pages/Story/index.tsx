@@ -35,13 +35,19 @@ const Story = (): JSX.Element => {
     )
   }
 
-  const { name, description } = story
+  const { name, description, blocks } = story
 
   return (
     <div className="text-center">
       <Heading title="Histoire" />
       <h3 className="text-xl py-3">{name}</h3>
       <p className="py-3">{description}</p>
+      <p>Blocs :</p>
+      <ul>
+        {blocks?.items.map(({ name, id }) => (
+          <li key={id}>{name}</li>
+        ))}
+      </ul>
     </div>
   )
 }

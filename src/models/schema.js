@@ -10,8 +10,8 @@ export const schema = {
                     "isRequired": true,
                     "attributes": []
                 },
-                "nam": {
-                    "name": "nam",
+                "name": {
+                    "name": "name",
                     "isArray": false,
                     "type": "String",
                     "isRequired": false,
@@ -23,6 +23,19 @@ export const schema = {
                     "type": "ID",
                     "isRequired": false,
                     "attributes": []
+                },
+                "nextBlock": {
+                    "name": "nextBlock",
+                    "isArray": false,
+                    "type": {
+                        "model": "Block"
+                    },
+                    "isRequired": false,
+                    "attributes": [],
+                    "association": {
+                        "connectionType": "BELONGS_TO",
+                        "targetName": "choiceNextBlockId"
+                    }
                 },
                 "createdAt": {
                     "name": "createdAt",
@@ -254,5 +267,5 @@ export const schema = {
     },
     "enums": {},
     "nonModels": {},
-    "version": "ed28787d93dd1068e7f812a06d0edce2"
+    "version": "5913079bd55f4e96621eff5fb5744eff"
 };
