@@ -71,6 +71,17 @@ export const createStory = /* GraphQL */ `
       createdAt
       updatedAt
       Blocks {
+        items {
+          id
+          name
+          description
+          storyID
+          _version
+          _deleted
+          _lastChangedAt
+          createdAt
+          updatedAt
+        }
         nextToken
         startedAt
       }
@@ -92,6 +103,17 @@ export const updateStory = /* GraphQL */ `
       createdAt
       updatedAt
       Blocks {
+        items {
+          id
+          name
+          description
+          storyID
+          _version
+          _deleted
+          _lastChangedAt
+          createdAt
+          updatedAt
+        }
         nextToken
         startedAt
       }
@@ -113,6 +135,17 @@ export const deleteStory = /* GraphQL */ `
       createdAt
       updatedAt
       Blocks {
+        items {
+          id
+          name
+          description
+          storyID
+          _version
+          _deleted
+          _lastChangedAt
+          createdAt
+          updatedAt
+        }
         nextToken
         startedAt
       }

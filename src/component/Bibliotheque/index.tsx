@@ -25,8 +25,6 @@ const Biblotheque = (): JSX.Element => {
     }
   }
 
-  
-
   useEffect(() => {fetchStories(), fetchBlocks()}, [])
   
   return (

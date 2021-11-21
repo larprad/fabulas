@@ -81,6 +81,17 @@ export const getStory = /* GraphQL */ `
       createdAt
       updatedAt
       Blocks {
+        items {
+          id
+          name
+          description
+          storyID
+          _version
+          _deleted
+          _lastChangedAt
+          createdAt
+          updatedAt
+        }
         nextToken
         startedAt
       }
@@ -103,13 +114,27 @@ export const listStorys = /* GraphQL */ `
         _lastChangedAt
         createdAt
         updatedAt
+        Blocks {
+          items {
+            id
+            name
+            description
+            storyID
+            _version
+            _deleted
+            _lastChangedAt
+            createdAt
+            updatedAt
+          }
+          nextToken
+          startedAt
+        }
       }
       nextToken
       startedAt
     }
   }
 `;
-
 export const syncStories = /* GraphQL */ `
   query SyncStories(
     $filter: ModelStoryFilterInput
@@ -132,6 +157,21 @@ export const syncStories = /* GraphQL */ `
         _lastChangedAt
         createdAt
         updatedAt
+        Blocks {
+          items {
+            id
+            name
+            description
+            storyID
+            _version
+            _deleted
+            _lastChangedAt
+            createdAt
+            updatedAt
+          }
+          nextToken
+          startedAt
+        }
       }
       nextToken
       startedAt
