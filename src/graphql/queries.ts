@@ -109,6 +109,7 @@ export const listStorys = /* GraphQL */ `
     }
   }
 `;
+
 export const syncStories = /* GraphQL */ `
   query SyncStories(
     $filter: ModelStoryFilterInput
