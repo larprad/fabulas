@@ -26,8 +26,8 @@ const Biblotheque = (): JSX.Element => {
 
   return (
     <div>
-      <h2 className="text-xl font-bold text-center py-3">Biblotheque</h2>
-      <div className="flex gap-3">
+      <h2 className="text-xl font-bold text-center pt-3 pb-6">Biblotheque</h2>
+      <div className="flex flex-wrap gap-3">
         {stories?.listStorys?.items.map((story) => (
           <StoryCard key={story.id} {...story} />
         ))}
