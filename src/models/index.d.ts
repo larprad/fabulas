@@ -4,6 +4,10 @@ import { ModelInit, MutableModel, PersistentModelConstructor } from "@aws-amplif
 
 
 
+type ChoiceMetaData = {
+  readOnlyFields: 'createdAt' | 'updatedAt';
+}
+
 type BlockMetaData = {
   readOnlyFields: 'createdAt' | 'updatedAt';
 }
@@ -12,11 +16,22 @@ type StoryMetaData = {
   readOnlyFields: 'createdAt' | 'updatedAt';
 }
 
+export declare class Choice {
+  readonly id: string;
+  readonly nam?: string;
+  readonly blockID?: string;
+  readonly createdAt?: string;
+  readonly updatedAt?: string;
+  constructor(init: ModelInit<Choice, ChoiceMetaData>);
+  static copyOf(source: Choice, mutator: (draft: MutableModel<Choice, ChoiceMetaData>) => MutableModel<Choice, ChoiceMetaData> | void): Choice;
+}
+
 export declare class Block {
   readonly id: string;
   readonly name?: string;
   readonly description?: string;
   readonly storyID?: string;
+  readonly choices?: (Choice | null)[];
   readonly createdAt?: string;
   readonly updatedAt?: string;
   constructor(init: ModelInit<Block, BlockMetaData>);
@@ -27,7 +42,7 @@ export declare class Story {
   readonly id: string;
   readonly name: string;
   readonly description?: string;
-  readonly Blocks?: (Block | null)[];
+  readonly blocks?: (Block | null)[];
   readonly createdAt?: string;
   readonly updatedAt?: string;
   constructor(init: ModelInit<Story, StoryMetaData>);

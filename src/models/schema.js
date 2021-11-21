@@ -1,5 +1,80 @@
 export const schema = {
     "models": {
+        "Choice": {
+            "name": "Choice",
+            "fields": {
+                "id": {
+                    "name": "id",
+                    "isArray": false,
+                    "type": "ID",
+                    "isRequired": true,
+                    "attributes": []
+                },
+                "nam": {
+                    "name": "nam",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "blockID": {
+                    "name": "blockID",
+                    "isArray": false,
+                    "type": "ID",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "createdAt": {
+                    "name": "createdAt",
+                    "isArray": false,
+                    "type": "AWSDateTime",
+                    "isRequired": false,
+                    "attributes": [],
+                    "isReadOnly": true
+                },
+                "updatedAt": {
+                    "name": "updatedAt",
+                    "isArray": false,
+                    "type": "AWSDateTime",
+                    "isRequired": false,
+                    "attributes": [],
+                    "isReadOnly": true
+                }
+            },
+            "syncable": true,
+            "pluralName": "Choices",
+            "attributes": [
+                {
+                    "type": "model",
+                    "properties": {}
+                },
+                {
+                    "type": "key",
+                    "properties": {
+                        "name": "byBlock",
+                        "fields": [
+                            "blockID"
+                        ]
+                    }
+                },
+                {
+                    "type": "auth",
+                    "properties": {
+                        "rules": [
+                            {
+                                "allow": "public",
+                                "operations": [
+                                    "create",
+                                    "update",
+                                    "delete",
+                                    "read"
+                                ]
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
         "Block": {
             "name": "Block",
             "fields": {
@@ -30,6 +105,20 @@ export const schema = {
                     "type": "ID",
                     "isRequired": false,
                     "attributes": []
+                },
+                "choices": {
+                    "name": "choices",
+                    "isArray": true,
+                    "type": {
+                        "model": "Choice"
+                    },
+                    "isRequired": false,
+                    "attributes": [],
+                    "isArrayNullable": true,
+                    "association": {
+                        "connectionType": "HAS_MANY",
+                        "associatedWith": "blockID"
+                    }
                 },
                 "createdAt": {
                     "name": "createdAt",
@@ -106,8 +195,8 @@ export const schema = {
                     "isRequired": false,
                     "attributes": []
                 },
-                "Blocks": {
-                    "name": "Blocks",
+                "blocks": {
+                    "name": "blocks",
                     "isArray": true,
                     "type": {
                         "model": "Block"
@@ -165,5 +254,5 @@ export const schema = {
     },
     "enums": {},
     "nonModels": {},
-    "version": "5233ae18ddd43fabe1df84d36530c13a"
+    "version": "ed28787d93dd1068e7f812a06d0edce2"
 };

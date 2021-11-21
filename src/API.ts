@@ -2,21 +2,19 @@
 /* eslint-disable */
 //  This file was automatically generated and should not be edited.
 
-export type CreateBlockInput = {
+export type CreateChoiceInput = {
   id?: string | null,
-  name?: string | null,
-  description?: string | null,
-  storyID?: string | null,
+  nam?: string | null,
+  blockID?: string | null,
   _version?: number | null,
 };
 
-export type ModelBlockConditionInput = {
-  name?: ModelStringInput | null,
-  description?: ModelStringInput | null,
-  storyID?: ModelIDInput | null,
-  and?: Array< ModelBlockConditionInput | null > | null,
-  or?: Array< ModelBlockConditionInput | null > | null,
-  not?: ModelBlockConditionInput | null,
+export type ModelChoiceConditionInput = {
+  nam?: ModelStringInput | null,
+  blockID?: ModelIDInput | null,
+  and?: Array< ModelChoiceConditionInput | null > | null,
+  or?: Array< ModelChoiceConditionInput | null > | null,
+  not?: ModelChoiceConditionInput | null,
 };
 
 export type ModelStringInput = {
@@ -75,6 +73,47 @@ export type ModelIDInput = {
   size?: ModelSizeInput | null,
 };
 
+export type Choice = {
+  __typename: "Choice",
+  id: string,
+  nam?: string | null,
+  blockID?: string | null,
+  _version: number,
+  _deleted?: boolean | null,
+  _lastChangedAt: number,
+  createdAt: string,
+  updatedAt: string,
+};
+
+export type UpdateChoiceInput = {
+  id: string,
+  nam?: string | null,
+  blockID?: string | null,
+  _version?: number | null,
+};
+
+export type DeleteChoiceInput = {
+  id: string,
+  _version?: number | null,
+};
+
+export type CreateBlockInput = {
+  id?: string | null,
+  name?: string | null,
+  description?: string | null,
+  storyID?: string | null,
+  _version?: number | null,
+};
+
+export type ModelBlockConditionInput = {
+  name?: ModelStringInput | null,
+  description?: ModelStringInput | null,
+  storyID?: ModelIDInput | null,
+  and?: Array< ModelBlockConditionInput | null > | null,
+  or?: Array< ModelBlockConditionInput | null > | null,
+  not?: ModelBlockConditionInput | null,
+};
+
 export type Block = {
   __typename: "Block",
   id: string,
@@ -86,6 +125,14 @@ export type Block = {
   _lastChangedAt: number,
   createdAt: string,
   updatedAt: string,
+  choices?: ModelChoiceConnection | null,
+};
+
+export type ModelChoiceConnection = {
+  __typename: "ModelChoiceConnection",
+  items:  Array<Choice >,
+  nextToken?: string | null,
+  startedAt?: number | null,
 };
 
 export type UpdateBlockInput = {
@@ -126,7 +173,7 @@ export type Story = {
   _lastChangedAt: number,
   createdAt: string,
   updatedAt: string,
-  Blocks?: ModelBlockConnection | null,
+  blocks?: ModelBlockConnection | null,
 };
 
 export type ModelBlockConnection = {
@@ -146,6 +193,15 @@ export type UpdateStoryInput = {
 export type DeleteStoryInput = {
   id: string,
   _version?: number | null,
+};
+
+export type ModelChoiceFilterInput = {
+  id?: ModelIDInput | null,
+  nam?: ModelStringInput | null,
+  blockID?: ModelIDInput | null,
+  and?: Array< ModelChoiceFilterInput | null > | null,
+  or?: Array< ModelChoiceFilterInput | null > | null,
+  not?: ModelChoiceFilterInput | null,
 };
 
 export type ModelBlockFilterInput = {
@@ -174,6 +230,63 @@ export type ModelStoryConnection = {
   startedAt?: number | null,
 };
 
+export type CreateChoiceMutationVariables = {
+  input: CreateChoiceInput,
+  condition?: ModelChoiceConditionInput | null,
+};
+
+export type CreateChoiceMutation = {
+  createChoice?:  {
+    __typename: "Choice",
+    id: string,
+    nam?: string | null,
+    blockID?: string | null,
+    _version: number,
+    _deleted?: boolean | null,
+    _lastChangedAt: number,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type UpdateChoiceMutationVariables = {
+  input: UpdateChoiceInput,
+  condition?: ModelChoiceConditionInput | null,
+};
+
+export type UpdateChoiceMutation = {
+  updateChoice?:  {
+    __typename: "Choice",
+    id: string,
+    nam?: string | null,
+    blockID?: string | null,
+    _version: number,
+    _deleted?: boolean | null,
+    _lastChangedAt: number,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type DeleteChoiceMutationVariables = {
+  input: DeleteChoiceInput,
+  condition?: ModelChoiceConditionInput | null,
+};
+
+export type DeleteChoiceMutation = {
+  deleteChoice?:  {
+    __typename: "Choice",
+    id: string,
+    nam?: string | null,
+    blockID?: string | null,
+    _version: number,
+    _deleted?: boolean | null,
+    _lastChangedAt: number,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
 export type CreateBlockMutationVariables = {
   input: CreateBlockInput,
   condition?: ModelBlockConditionInput | null,
@@ -191,6 +304,22 @@ export type CreateBlockMutation = {
     _lastChangedAt: number,
     createdAt: string,
     updatedAt: string,
+    choices?:  {
+      __typename: "ModelChoiceConnection",
+      items:  Array< {
+        __typename: "Choice",
+        id: string,
+        nam?: string | null,
+        blockID?: string | null,
+        _version: number,
+        _deleted?: boolean | null,
+        _lastChangedAt: number,
+        createdAt: string,
+        updatedAt: string,
+      } >,
+      nextToken?: string | null,
+      startedAt?: number | null,
+    } | null,
   } | null,
 };
 
@@ -211,6 +340,22 @@ export type UpdateBlockMutation = {
     _lastChangedAt: number,
     createdAt: string,
     updatedAt: string,
+    choices?:  {
+      __typename: "ModelChoiceConnection",
+      items:  Array< {
+        __typename: "Choice",
+        id: string,
+        nam?: string | null,
+        blockID?: string | null,
+        _version: number,
+        _deleted?: boolean | null,
+        _lastChangedAt: number,
+        createdAt: string,
+        updatedAt: string,
+      } >,
+      nextToken?: string | null,
+      startedAt?: number | null,
+    } | null,
   } | null,
 };
 
@@ -231,6 +376,22 @@ export type DeleteBlockMutation = {
     _lastChangedAt: number,
     createdAt: string,
     updatedAt: string,
+    choices?:  {
+      __typename: "ModelChoiceConnection",
+      items:  Array< {
+        __typename: "Choice",
+        id: string,
+        nam?: string | null,
+        blockID?: string | null,
+        _version: number,
+        _deleted?: boolean | null,
+        _lastChangedAt: number,
+        createdAt: string,
+        updatedAt: string,
+      } >,
+      nextToken?: string | null,
+      startedAt?: number | null,
+    } | null,
   } | null,
 };
 
@@ -250,7 +411,7 @@ export type CreateStoryMutation = {
     _lastChangedAt: number,
     createdAt: string,
     updatedAt: string,
-    Blocks?:  {
+    blocks?:  {
       __typename: "ModelBlockConnection",
       items:  Array< {
         __typename: "Block",
@@ -263,6 +424,11 @@ export type CreateStoryMutation = {
         _lastChangedAt: number,
         createdAt: string,
         updatedAt: string,
+        choices?:  {
+          __typename: "ModelChoiceConnection",
+          nextToken?: string | null,
+          startedAt?: number | null,
+        } | null,
       } >,
       nextToken?: string | null,
       startedAt?: number | null,
@@ -286,7 +452,7 @@ export type UpdateStoryMutation = {
     _lastChangedAt: number,
     createdAt: string,
     updatedAt: string,
-    Blocks?:  {
+    blocks?:  {
       __typename: "ModelBlockConnection",
       items:  Array< {
         __typename: "Block",
@@ -299,6 +465,11 @@ export type UpdateStoryMutation = {
         _lastChangedAt: number,
         createdAt: string,
         updatedAt: string,
+        choices?:  {
+          __typename: "ModelChoiceConnection",
+          nextToken?: string | null,
+          startedAt?: number | null,
+        } | null,
       } >,
       nextToken?: string | null,
       startedAt?: number | null,
@@ -322,7 +493,7 @@ export type DeleteStoryMutation = {
     _lastChangedAt: number,
     createdAt: string,
     updatedAt: string,
-    Blocks?:  {
+    blocks?:  {
       __typename: "ModelBlockConnection",
       items:  Array< {
         __typename: "Block",
@@ -335,10 +506,84 @@ export type DeleteStoryMutation = {
         _lastChangedAt: number,
         createdAt: string,
         updatedAt: string,
+        choices?:  {
+          __typename: "ModelChoiceConnection",
+          nextToken?: string | null,
+          startedAt?: number | null,
+        } | null,
       } >,
       nextToken?: string | null,
       startedAt?: number | null,
     } | null,
+  } | null,
+};
+
+export type GetChoiceQueryVariables = {
+  id: string,
+};
+
+export type GetChoiceQuery = {
+  getChoice?:  {
+    __typename: "Choice",
+    id: string,
+    nam?: string | null,
+    blockID?: string | null,
+    _version: number,
+    _deleted?: boolean | null,
+    _lastChangedAt: number,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type ListChoicesQueryVariables = {
+  filter?: ModelChoiceFilterInput | null,
+  limit?: number | null,
+  nextToken?: string | null,
+};
+
+export type ListChoicesQuery = {
+  listChoices?:  {
+    __typename: "ModelChoiceConnection",
+    items:  Array< {
+      __typename: "Choice",
+      id: string,
+      nam?: string | null,
+      blockID?: string | null,
+      _version: number,
+      _deleted?: boolean | null,
+      _lastChangedAt: number,
+      createdAt: string,
+      updatedAt: string,
+    } >,
+    nextToken?: string | null,
+    startedAt?: number | null,
+  } | null,
+};
+
+export type SyncChoicesQueryVariables = {
+  filter?: ModelChoiceFilterInput | null,
+  limit?: number | null,
+  nextToken?: string | null,
+  lastSync?: number | null,
+};
+
+export type SyncChoicesQuery = {
+  syncChoices?:  {
+    __typename: "ModelChoiceConnection",
+    items:  Array< {
+      __typename: "Choice",
+      id: string,
+      nam?: string | null,
+      blockID?: string | null,
+      _version: number,
+      _deleted?: boolean | null,
+      _lastChangedAt: number,
+      createdAt: string,
+      updatedAt: string,
+    } >,
+    nextToken?: string | null,
+    startedAt?: number | null,
   } | null,
 };
 
@@ -358,6 +603,22 @@ export type GetBlockQuery = {
     _lastChangedAt: number,
     createdAt: string,
     updatedAt: string,
+    choices?:  {
+      __typename: "ModelChoiceConnection",
+      items:  Array< {
+        __typename: "Choice",
+        id: string,
+        nam?: string | null,
+        blockID?: string | null,
+        _version: number,
+        _deleted?: boolean | null,
+        _lastChangedAt: number,
+        createdAt: string,
+        updatedAt: string,
+      } >,
+      nextToken?: string | null,
+      startedAt?: number | null,
+    } | null,
   } | null,
 };
 
@@ -381,6 +642,22 @@ export type ListBlocksQuery = {
       _lastChangedAt: number,
       createdAt: string,
       updatedAt: string,
+      choices?:  {
+        __typename: "ModelChoiceConnection",
+        items:  Array< {
+          __typename: "Choice",
+          id: string,
+          nam?: string | null,
+          blockID?: string | null,
+          _version: number,
+          _deleted?: boolean | null,
+          _lastChangedAt: number,
+          createdAt: string,
+          updatedAt: string,
+        } >,
+        nextToken?: string | null,
+        startedAt?: number | null,
+      } | null,
     } >,
     nextToken?: string | null,
     startedAt?: number | null,
@@ -408,6 +685,22 @@ export type SyncBlocksQuery = {
       _lastChangedAt: number,
       createdAt: string,
       updatedAt: string,
+      choices?:  {
+        __typename: "ModelChoiceConnection",
+        items:  Array< {
+          __typename: "Choice",
+          id: string,
+          nam?: string | null,
+          blockID?: string | null,
+          _version: number,
+          _deleted?: boolean | null,
+          _lastChangedAt: number,
+          createdAt: string,
+          updatedAt: string,
+        } >,
+        nextToken?: string | null,
+        startedAt?: number | null,
+      } | null,
     } >,
     nextToken?: string | null,
     startedAt?: number | null,
@@ -429,7 +722,7 @@ export type GetStoryQuery = {
     _lastChangedAt: number,
     createdAt: string,
     updatedAt: string,
-    Blocks?:  {
+    blocks?:  {
       __typename: "ModelBlockConnection",
       items:  Array< {
         __typename: "Block",
@@ -442,6 +735,11 @@ export type GetStoryQuery = {
         _lastChangedAt: number,
         createdAt: string,
         updatedAt: string,
+        choices?:  {
+          __typename: "ModelChoiceConnection",
+          nextToken?: string | null,
+          startedAt?: number | null,
+        } | null,
       } >,
       nextToken?: string | null,
       startedAt?: number | null,
@@ -468,7 +766,7 @@ export type ListStorysQuery = {
       _lastChangedAt: number,
       createdAt: string,
       updatedAt: string,
-      Blocks?:  {
+      blocks?:  {
         __typename: "ModelBlockConnection",
         items:  Array< {
           __typename: "Block",
@@ -511,7 +809,7 @@ export type SyncStoriesQuery = {
       _lastChangedAt: number,
       createdAt: string,
       updatedAt: string,
-      Blocks?:  {
+      blocks?:  {
         __typename: "ModelBlockConnection",
         items:  Array< {
           __typename: "Block",
@@ -534,6 +832,48 @@ export type SyncStoriesQuery = {
   } | null,
 };
 
+export type OnCreateChoiceSubscription = {
+  onCreateChoice?:  {
+    __typename: "Choice",
+    id: string,
+    nam?: string | null,
+    blockID?: string | null,
+    _version: number,
+    _deleted?: boolean | null,
+    _lastChangedAt: number,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type OnUpdateChoiceSubscription = {
+  onUpdateChoice?:  {
+    __typename: "Choice",
+    id: string,
+    nam?: string | null,
+    blockID?: string | null,
+    _version: number,
+    _deleted?: boolean | null,
+    _lastChangedAt: number,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type OnDeleteChoiceSubscription = {
+  onDeleteChoice?:  {
+    __typename: "Choice",
+    id: string,
+    nam?: string | null,
+    blockID?: string | null,
+    _version: number,
+    _deleted?: boolean | null,
+    _lastChangedAt: number,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
 export type OnCreateBlockSubscription = {
   onCreateBlock?:  {
     __typename: "Block",
@@ -546,6 +886,22 @@ export type OnCreateBlockSubscription = {
     _lastChangedAt: number,
     createdAt: string,
     updatedAt: string,
+    choices?:  {
+      __typename: "ModelChoiceConnection",
+      items:  Array< {
+        __typename: "Choice",
+        id: string,
+        nam?: string | null,
+        blockID?: string | null,
+        _version: number,
+        _deleted?: boolean | null,
+        _lastChangedAt: number,
+        createdAt: string,
+        updatedAt: string,
+      } >,
+      nextToken?: string | null,
+      startedAt?: number | null,
+    } | null,
   } | null,
 };
 
@@ -561,6 +917,22 @@ export type OnUpdateBlockSubscription = {
     _lastChangedAt: number,
     createdAt: string,
     updatedAt: string,
+    choices?:  {
+      __typename: "ModelChoiceConnection",
+      items:  Array< {
+        __typename: "Choice",
+        id: string,
+        nam?: string | null,
+        blockID?: string | null,
+        _version: number,
+        _deleted?: boolean | null,
+        _lastChangedAt: number,
+        createdAt: string,
+        updatedAt: string,
+      } >,
+      nextToken?: string | null,
+      startedAt?: number | null,
+    } | null,
   } | null,
 };
 
@@ -576,6 +948,22 @@ export type OnDeleteBlockSubscription = {
     _lastChangedAt: number,
     createdAt: string,
     updatedAt: string,
+    choices?:  {
+      __typename: "ModelChoiceConnection",
+      items:  Array< {
+        __typename: "Choice",
+        id: string,
+        nam?: string | null,
+        blockID?: string | null,
+        _version: number,
+        _deleted?: boolean | null,
+        _lastChangedAt: number,
+        createdAt: string,
+        updatedAt: string,
+      } >,
+      nextToken?: string | null,
+      startedAt?: number | null,
+    } | null,
   } | null,
 };
 
@@ -590,7 +978,7 @@ export type OnCreateStorySubscription = {
     _lastChangedAt: number,
     createdAt: string,
     updatedAt: string,
-    Blocks?:  {
+    blocks?:  {
       __typename: "ModelBlockConnection",
       items:  Array< {
         __typename: "Block",
@@ -603,6 +991,11 @@ export type OnCreateStorySubscription = {
         _lastChangedAt: number,
         createdAt: string,
         updatedAt: string,
+        choices?:  {
+          __typename: "ModelChoiceConnection",
+          nextToken?: string | null,
+          startedAt?: number | null,
+        } | null,
       } >,
       nextToken?: string | null,
       startedAt?: number | null,
@@ -621,7 +1014,7 @@ export type OnUpdateStorySubscription = {
     _lastChangedAt: number,
     createdAt: string,
     updatedAt: string,
-    Blocks?:  {
+    blocks?:  {
       __typename: "ModelBlockConnection",
       items:  Array< {
         __typename: "Block",
@@ -634,6 +1027,11 @@ export type OnUpdateStorySubscription = {
         _lastChangedAt: number,
         createdAt: string,
         updatedAt: string,
+        choices?:  {
+          __typename: "ModelChoiceConnection",
+          nextToken?: string | null,
+          startedAt?: number | null,
+        } | null,
       } >,
       nextToken?: string | null,
       startedAt?: number | null,
@@ -652,7 +1050,7 @@ export type OnDeleteStorySubscription = {
     _lastChangedAt: number,
     createdAt: string,
     updatedAt: string,
-    Blocks?:  {
+    blocks?:  {
       __typename: "ModelBlockConnection",
       items:  Array< {
         __typename: "Block",
@@ -665,6 +1063,11 @@ export type OnDeleteStorySubscription = {
         _lastChangedAt: number,
         createdAt: string,
         updatedAt: string,
+        choices?:  {
+          __typename: "ModelChoiceConnection",
+          nextToken?: string | null,
+          startedAt?: number | null,
+        } | null,
       } >,
       nextToken?: string | null,
       startedAt?: number | null,

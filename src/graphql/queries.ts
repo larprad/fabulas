@@ -2,6 +2,70 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
+export const getChoice = /* GraphQL */ `
+  query GetChoice($id: ID!) {
+    getChoice(id: $id) {
+      id
+      nam
+      blockID
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const listChoices = /* GraphQL */ `
+  query ListChoices(
+    $filter: ModelChoiceFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listChoices(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        nam
+        blockID
+        _version
+        _deleted
+        _lastChangedAt
+        createdAt
+        updatedAt
+      }
+      nextToken
+      startedAt
+    }
+  }
+`;
+export const syncChoices = /* GraphQL */ `
+  query SyncChoices(
+    $filter: ModelChoiceFilterInput
+    $limit: Int
+    $nextToken: String
+    $lastSync: AWSTimestamp
+  ) {
+    syncChoices(
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+      lastSync: $lastSync
+    ) {
+      items {
+        id
+        nam
+        blockID
+        _version
+        _deleted
+        _lastChangedAt
+        createdAt
+        updatedAt
+      }
+      nextToken
+      startedAt
+    }
+  }
+`;
 export const getBlock = /* GraphQL */ `
   query GetBlock($id: ID!) {
     getBlock(id: $id) {
@@ -14,6 +78,20 @@ export const getBlock = /* GraphQL */ `
       _lastChangedAt
       createdAt
       updatedAt
+      choices {
+        items {
+          id
+          nam
+          blockID
+          _version
+          _deleted
+          _lastChangedAt
+          createdAt
+          updatedAt
+        }
+        nextToken
+        startedAt
+      }
     }
   }
 `;
@@ -34,6 +112,20 @@ export const listBlocks = /* GraphQL */ `
         _lastChangedAt
         createdAt
         updatedAt
+        choices {
+          items {
+            id
+            nam
+            blockID
+            _version
+            _deleted
+            _lastChangedAt
+            createdAt
+            updatedAt
+          }
+          nextToken
+          startedAt
+        }
       }
       nextToken
       startedAt
@@ -63,6 +155,20 @@ export const syncBlocks = /* GraphQL */ `
         _lastChangedAt
         createdAt
         updatedAt
+        choices {
+          items {
+            id
+            nam
+            blockID
+            _version
+            _deleted
+            _lastChangedAt
+            createdAt
+            updatedAt
+          }
+          nextToken
+          startedAt
+        }
       }
       nextToken
       startedAt
@@ -80,7 +186,7 @@ export const getStory = /* GraphQL */ `
       _lastChangedAt
       createdAt
       updatedAt
-      Blocks {
+      blocks {
         items {
           id
           name
@@ -91,6 +197,10 @@ export const getStory = /* GraphQL */ `
           _lastChangedAt
           createdAt
           updatedAt
+          choices {
+            nextToken
+            startedAt
+          }
         }
         nextToken
         startedAt
@@ -114,7 +224,7 @@ export const listStorys = /* GraphQL */ `
         _lastChangedAt
         createdAt
         updatedAt
-        Blocks {
+        blocks {
           items {
             id
             name
@@ -157,7 +267,7 @@ export const syncStories = /* GraphQL */ `
         _lastChangedAt
         createdAt
         updatedAt
-        Blocks {
+        blocks {
           items {
             id
             name

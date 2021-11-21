@@ -1,6 +1,6 @@
 import { Routes, Route } from 'react-router-dom'
-import Home from '../Home'
-import Bibliotheque from '../Bibliotheque'
+import Home from '../../pages/Home'
+import Bibliotheque from '../../pages/Bibliotheque'
 import { ROUTES } from '../../constants'
 
 const Page = (): JSX.Element => {

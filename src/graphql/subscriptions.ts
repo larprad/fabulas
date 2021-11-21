@@ -2,6 +2,48 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
+export const onCreateChoice = /* GraphQL */ `
+  subscription OnCreateChoice {
+    onCreateChoice {
+      id
+      nam
+      blockID
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onUpdateChoice = /* GraphQL */ `
+  subscription OnUpdateChoice {
+    onUpdateChoice {
+      id
+      nam
+      blockID
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onDeleteChoice = /* GraphQL */ `
+  subscription OnDeleteChoice {
+    onDeleteChoice {
+      id
+      nam
+      blockID
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+    }
+  }
+`;
 export const onCreateBlock = /* GraphQL */ `
   subscription OnCreateBlock {
     onCreateBlock {
@@ -14,6 +56,20 @@ export const onCreateBlock = /* GraphQL */ `
       _lastChangedAt
       createdAt
       updatedAt
+      choices {
+        items {
+          id
+          nam
+          blockID
+          _version
+          _deleted
+          _lastChangedAt
+          createdAt
+          updatedAt
+        }
+        nextToken
+        startedAt
+      }
     }
   }
 `;
@@ -29,6 +85,20 @@ export const onUpdateBlock = /* GraphQL */ `
       _lastChangedAt
       createdAt
       updatedAt
+      choices {
+        items {
+          id
+          nam
+          blockID
+          _version
+          _deleted
+          _lastChangedAt
+          createdAt
+          updatedAt
+        }
+        nextToken
+        startedAt
+      }
     }
   }
 `;
@@ -44,6 +114,20 @@ export const onDeleteBlock = /* GraphQL */ `
       _lastChangedAt
       createdAt
       updatedAt
+      choices {
+        items {
+          id
+          nam
+          blockID
+          _version
+          _deleted
+          _lastChangedAt
+          createdAt
+          updatedAt
+        }
+        nextToken
+        startedAt
+      }
     }
   }
 `;
@@ -58,7 +142,7 @@ export const onCreateStory = /* GraphQL */ `
       _lastChangedAt
       createdAt
       updatedAt
-      Blocks {
+      blocks {
         items {
           id
           name
@@ -69,6 +153,10 @@ export const onCreateStory = /* GraphQL */ `
           _lastChangedAt
           createdAt
           updatedAt
+          choices {
+            nextToken
+            startedAt
+          }
         }
         nextToken
         startedAt
@@ -87,7 +175,7 @@ export const onUpdateStory = /* GraphQL */ `
       _lastChangedAt
       createdAt
       updatedAt
-      Blocks {
+      blocks {
         items {
           id
           name
@@ -98,6 +186,10 @@ export const onUpdateStory = /* GraphQL */ `
           _lastChangedAt
           createdAt
           updatedAt
+          choices {
+            nextToken
+            startedAt
+          }
         }
         nextToken
         startedAt
@@ -116,7 +208,7 @@ export const onDeleteStory = /* GraphQL */ `
       _lastChangedAt
       createdAt
       updatedAt
-      Blocks {
+      blocks {
         items {
           id
           name
@@ -127,6 +219,10 @@ export const onDeleteStory = /* GraphQL */ `
           _lastChangedAt
           createdAt
           updatedAt
+          choices {
+            nextToken
+            startedAt
+          }
         }
         nextToken
         startedAt

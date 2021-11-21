@@ -4,9 +4,10 @@ import { schema } from './schema';
 
 
 
-const { Block, Story } = initSchema(schema);
+const { Choice, Block, Story } = initSchema(schema);
 
 export {
+  Choice,
   Block,
   Story
 };
