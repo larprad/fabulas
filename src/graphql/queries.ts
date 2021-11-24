@@ -18,6 +18,7 @@ export const getChoice = /* GraphQL */ `
         name
         description
         storyID
+        initial
         _version
         _deleted
         _lastChangedAt
@@ -62,6 +63,7 @@ export const listChoices = /* GraphQL */ `
           name
           description
           storyID
+          initial
           _version
           _deleted
           _lastChangedAt
@@ -105,6 +107,7 @@ export const syncChoices = /* GraphQL */ `
           name
           description
           storyID
+          initial
           _version
           _deleted
           _lastChangedAt
@@ -128,6 +131,7 @@ export const getBlock = /* GraphQL */ `
       name
       description
       storyID
+      initial
       _version
       _deleted
       _lastChangedAt
@@ -148,6 +152,7 @@ export const getBlock = /* GraphQL */ `
             name
             description
             storyID
+            initial
             _version
             _deleted
             _lastChangedAt
@@ -173,6 +178,7 @@ export const listBlocks = /* GraphQL */ `
         name
         description
         storyID
+        initial
         _version
         _deleted
         _lastChangedAt
@@ -216,6 +222,7 @@ export const syncBlocks = /* GraphQL */ `
         name
         description
         storyID
+        initial
         _version
         _deleted
         _lastChangedAt
@@ -258,6 +265,7 @@ export const getStory = /* GraphQL */ `
           name
           description
           storyID
+          initial
           _version
           _deleted
           _lastChangedAt
@@ -296,6 +304,7 @@ export const listStorys = /* GraphQL */ `
             name
             description
             storyID
+            initial
             _version
             _deleted
             _lastChangedAt
@@ -339,6 +348,7 @@ export const syncStories = /* GraphQL */ `
             name
             description
             storyID
+            initial
             _version
             _deleted
             _lastChangedAt

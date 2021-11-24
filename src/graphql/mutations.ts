@@ -21,6 +21,7 @@ export const createChoice = /* GraphQL */ `
         name
         description
         storyID
+        initial
         _version
         _deleted
         _lastChangedAt
@@ -63,6 +64,7 @@ export const updateChoice = /* GraphQL */ `
         name
         description
         storyID
+        initial
         _version
         _deleted
         _lastChangedAt
@@ -105,6 +107,7 @@ export const deleteChoice = /* GraphQL */ `
         name
         description
         storyID
+        initial
         _version
         _deleted
         _lastChangedAt
@@ -138,6 +141,7 @@ export const createBlock = /* GraphQL */ `
       name
       description
       storyID
+      initial
       _version
       _deleted
       _lastChangedAt
@@ -158,6 +162,7 @@ export const createBlock = /* GraphQL */ `
             name
             description
             storyID
+            initial
             _version
             _deleted
             _lastChangedAt
@@ -181,6 +186,7 @@ export const updateBlock = /* GraphQL */ `
       name
       description
       storyID
+      initial
       _version
       _deleted
       _lastChangedAt
@@ -201,6 +207,7 @@ export const updateBlock = /* GraphQL */ `
             name
             description
             storyID
+            initial
             _version
             _deleted
             _lastChangedAt
@@ -224,6 +231,7 @@ export const deleteBlock = /* GraphQL */ `
       name
       description
       storyID
+      initial
       _version
       _deleted
       _lastChangedAt
@@ -244,6 +252,7 @@ export const deleteBlock = /* GraphQL */ `
             name
             description
             storyID
+            initial
             _version
             _deleted
             _lastChangedAt
@@ -277,6 +286,7 @@ export const createStory = /* GraphQL */ `
           name
           description
           storyID
+          initial
           _version
           _deleted
           _lastChangedAt
@@ -313,6 +323,7 @@ export const updateStory = /* GraphQL */ `
           name
           description
           storyID
+          initial
           _version
           _deleted
           _lastChangedAt
@@ -349,6 +360,7 @@ export const deleteStory = /* GraphQL */ `
           name
           description
           storyID
+          initial
           _version
           _deleted
           _lastChangedAt

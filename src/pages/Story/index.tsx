@@ -6,7 +6,7 @@ const Story = (): JSX.Element => {
   const { id = '' } = useParams()
   const variables = { id }
   const { data, isLoading, isError } = useGetStory(variables)
-  const story = data?.data.getStory
+  const story = data?.data
 
   if (isLoading) {
     return (
