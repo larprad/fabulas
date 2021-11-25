@@ -4,7 +4,6 @@ import { useGetStories } from '../../hooks/useDataQuery'
 
 const Biblotheque = (): JSX.Element => {
   const { data: stories, isLoading, isError } = useGetStories()
-  console.log(stories)
 
   if (isLoading) {
     return (
@@ -29,7 +28,7 @@ const Biblotheque = (): JSX.Element => {
       <Heading title="Biblotheque" />
       <div className="flex flex-wrap gap-3">
         {stories?.items.map((story) => (
-          <StoryCard key={story.id} name={story.name} description={story.description} />
+          <StoryCard key={story.id} {...story} />
         ))}
       </div>
     </div>
