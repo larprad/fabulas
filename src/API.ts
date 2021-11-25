@@ -129,6 +129,24 @@ export type ModelStoryConnection = {
   startedAt?: number | null,
 };
 
+export type ModelBlockFilterInput = {
+  id?: ModelIDInput | null,
+  name?: ModelStringInput | null,
+  description?: ModelStringInput | null,
+  storyID?: ModelIDInput | null,
+  initial?: ModelBooleanInput | null,
+  and?: Array< ModelBlockFilterInput | null > | null,
+  or?: Array< ModelBlockFilterInput | null > | null,
+  not?: ModelBlockFilterInput | null,
+};
+
+export type ModelBooleanInput = {
+  ne?: boolean | null,
+  eq?: boolean | null,
+  attributeExists?: boolean | null,
+  attributeType?: ModelAttributeTypes | null,
+};
+
 export type CreateChoiceInput = {
   id?: string | null,
   name?: string | null,
@@ -175,13 +193,6 @@ export type ModelBlockConditionInput = {
   and?: Array< ModelBlockConditionInput | null > | null,
   or?: Array< ModelBlockConditionInput | null > | null,
   not?: ModelBlockConditionInput | null,
-};
-
-export type ModelBooleanInput = {
-  ne?: boolean | null,
-  eq?: boolean | null,
-  attributeExists?: boolean | null,
-  attributeType?: ModelAttributeTypes | null,
 };
 
 export type UpdateBlockInput = {
@@ -234,17 +245,6 @@ export type ModelChoiceFilterInput = {
   not?: ModelChoiceFilterInput | null,
 };
 
-export type ModelBlockFilterInput = {
-  id?: ModelIDInput | null,
-  name?: ModelStringInput | null,
-  description?: ModelStringInput | null,
-  storyID?: ModelIDInput | null,
-  initial?: ModelBooleanInput | null,
-  and?: Array< ModelBlockFilterInput | null > | null,
-  or?: Array< ModelBlockFilterInput | null > | null,
-  not?: ModelBlockFilterInput | null,
-};
-
 export type GetStory_customQueryVariables = {
   id: string,
 };
@@ -271,6 +271,10 @@ export type GetStory_customQuery = {
             id: string,
             name?: string | null,
             blockID?: string | null,
+            nextBlock?:  {
+              __typename: "Block",
+              id: string,
+            } | null,
           } >,
         } | null,
       } >,
@@ -304,6 +308,71 @@ export type ListStorys_customQuery = {
         } >,
       } | null,
     } >,
+  } | null,
+};
+
+export type ListBlocks_customQueryVariables = {
+  filter?: ModelBlockFilterInput | null,
+  limit?: number | null,
+  nextToken?: string | null,
+};
+
+export type ListBlocks_customQuery = {
+  listBlocks?:  {
+    __typename: "ModelBlockConnection",
+    items:  Array< {
+      __typename: "Block",
+      id: string,
+      name?: string | null,
+      description?: string | null,
+      storyID?: string | null,
+      initial?: boolean | null,
+      choices?:  {
+        __typename: "ModelChoiceConnection",
+        items:  Array< {
+          __typename: "Choice",
+          id: string,
+          name?: string | null,
+          blockID?: string | null,
+          nextBlock?:  {
+            __typename: "Block",
+            id: string,
+          } | null,
+        } >,
+      } | null,
+    } >,
+  } | null,
+};
+
+export type GetBlock_customQueryVariables = {
+  id: string,
+};
+
+export type GetBlock_customQuery = {
+  getBlock?:  {
+    __typename: "Block",
+    id: string,
+    name?: string | null,
+    description?: string | null,
+    storyID?: string | null,
+    initial?: boolean | null,
+    choices?:  {
+      __typename: "ModelChoiceConnection",
+      items:  Array< {
+        __typename: "Choice",
+        id: string,
+        name?: string | null,
+        blockID?: string | null,
+        nextBlock?:  {
+          __typename: "Block",
+          id: string,
+          name?: string | null,
+          description?: string | null,
+          storyID?: string | null,
+          initial?: boolean | null,
+        } | null,
+      } >,
+    } | null,
   } | null,
 };
 

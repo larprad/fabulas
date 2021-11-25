@@ -16,6 +16,9 @@ export const getStory = /* GraphQL */ `
               id
               name
               blockID
+              nextBlock {
+                id
+              }
             }
           }
         }
@@ -33,6 +36,55 @@ export const listStorys = /* GraphQL */ `
         description
         blocks {
           items {
+            id
+            name
+            description
+            storyID
+            initial
+          }
+        }
+      }
+    }
+  }
+`
+export const listBlocks = /* GraphQL */ `
+  query ListBlocks_custom($filter: ModelBlockFilterInput, $limit: Int, $nextToken: String) {
+    listBlocks(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        name
+        description
+        storyID
+        initial
+        choices {
+          items {
+            id
+            name
+            blockID
+            nextBlock {
+              id
+            }
+          }
+        }
+      }
+    }
+  }
+`
+
+export const getBlock = /* GraphQL */ `
+  query GetBlock_custom($id: ID!) {
+    getBlock(id: $id) {
+      id
+      name
+      description
+      storyID
+      initial
+      choices {
+        items {
+          id
+          name
+          blockID
+          nextBlock {
             id
             name
             description

@@ -1,13 +1,14 @@
 import { useGetStory } from '../../hooks/useDataQuery'
 import { useParams } from 'react-router-dom'
 import Heading from '../../component/Heading'
+import BlockRead from '../../component/BlockRead'
 
 const Story = (): JSX.Element => {
   const { id = '' } = useParams()
   const variables = { id }
-  const { data: story, isLoading, isError } = useGetStory(variables)
+  const { data: story, isLoading: storyLoading, isError: storyError } = useGetStory(variables)
 
-  if (isLoading) {
+  if (storyLoading) {
     return (
       <div className="text-center">
         <Heading title="Histoire" />
@@ -25,7 +26,7 @@ const Story = (): JSX.Element => {
     )
   }
 
-  if (isError) {
+  if (storyError) {
     return (
       <div className="text-center">
         <Heading title="Histoire" />
@@ -41,12 +42,7 @@ const Story = (): JSX.Element => {
       <Heading title="Histoire" />
       <h3 className="text-xl py-3">{name}</h3>
       <p className="py-3">{description}</p>
-      <p>Blocs :</p>
-      <ul>
-        {blocks?.items.map(({ name, id }) => (
-          <li key={id}>{name}</li>
-        ))}
-      </ul>
+      <BlockRead blocks={blocks} />
     </div>
   )
 }
