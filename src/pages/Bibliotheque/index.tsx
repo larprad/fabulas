@@ -3,9 +3,7 @@ import StoryCard from '../../component/StoryCard'
 import { useGetStories } from '../../hooks/useDataQuery'
 
 const Biblotheque = (): JSX.Element => {
-  const { data, isLoading, isError } = useGetStories()
-
-  const stories = data?.listStorys
+  const { data: stories, isLoading, isError } = useGetStories()
   console.log(stories)
 
   if (isLoading) {

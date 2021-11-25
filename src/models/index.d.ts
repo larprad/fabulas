@@ -33,6 +33,7 @@ export declare class Block {
   readonly description?: string;
   readonly storyID?: string;
   readonly choices?: (Choice | null)[];
+  readonly initial?: boolean;
   readonly createdAt?: string;
   readonly updatedAt?: string;
   constructor(init: ModelInit<Block, BlockMetaData>);

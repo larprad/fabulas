@@ -133,6 +133,13 @@ export const schema = {
                         "associatedWith": "blockID"
                     }
                 },
+                "initial": {
+                    "name": "initial",
+                    "isArray": false,
+                    "type": "Boolean",
+                    "isRequired": false,
+                    "attributes": []
+                },
                 "createdAt": {
                     "name": "createdAt",
                     "isArray": false,
@@ -267,5 +274,5 @@ export const schema = {
     },
     "enums": {},
     "nonModels": {},
-    "version": "5913079bd55f4e96621eff5fb5744eff"
+    "version": "1e998acfd57949f4abf05972eb255604"
 };

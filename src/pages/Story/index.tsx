@@ -5,8 +5,7 @@ import Heading from '../../component/Heading'
 const Story = (): JSX.Element => {
   const { id = '' } = useParams()
   const variables = { id }
-  const { data, isLoading, isError } = useGetStory(variables)
-  const story = data?.data
+  const { data: story, isLoading, isError } = useGetStory(variables)
 
   if (isLoading) {
     return (
