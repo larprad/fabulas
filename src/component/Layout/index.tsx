@@ -8,7 +8,7 @@ const Layout = ({ children }: Props): JSX.Element => {
   return (
     <div className="h-screen flex flex-col bg-black text-white">
       <Header />
-      <div className="flex-grow p-3">{children}</div>
+      <div className="p-3 max-w-screen-lg container mx-auto">{children}</div>
     </div>
   )
 }
