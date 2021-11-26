@@ -10,7 +10,7 @@ type Story = {
 const StoryCard = ({ name, description, id }: Story): JSX.Element => {
   return (
     <div className="shadow rounded h-60 w-80 bg-gray-500 p-3 text-center">
-      <h3 className="text-lg font-bold">{name}</h3>
+      <h3>{name}</h3>
       <p>{description}</p>
       <Link to={ROUTES.STORY + id}>
         <p className="m-3 p-3 rouded bg-gray-700">Check story</p>

@@ -2,6 +2,61 @@
 /* eslint-disable */
 //  This file was automatically generated and should not be edited.
 
+export type CreateStoryInput = {
+  id?: string | null,
+  name: string,
+  description?: string | null,
+  _version?: number | null,
+};
+
+export type ModelStoryConditionInput = {
+  name?: ModelStringInput | null,
+  description?: ModelStringInput | null,
+  and?: Array< ModelStoryConditionInput | null > | null,
+  or?: Array< ModelStoryConditionInput | null > | null,
+  not?: ModelStoryConditionInput | null,
+};
+
+export type ModelStringInput = {
+  ne?: string | null,
+  eq?: string | null,
+  le?: string | null,
+  lt?: string | null,
+  ge?: string | null,
+  gt?: string | null,
+  contains?: string | null,
+  notContains?: string | null,
+  between?: Array< string | null > | null,
+  beginsWith?: string | null,
+  attributeExists?: boolean | null,
+  attributeType?: ModelAttributeTypes | null,
+  size?: ModelSizeInput | null,
+};
+
+export enum ModelAttributeTypes {
+  binary = "binary",
+  binarySet = "binarySet",
+  bool = "bool",
+  list = "list",
+  map = "map",
+  number = "number",
+  numberSet = "numberSet",
+  string = "string",
+  stringSet = "stringSet",
+  _null = "_null",
+}
+
+
+export type ModelSizeInput = {
+  ne?: number | null,
+  eq?: number | null,
+  le?: number | null,
+  lt?: number | null,
+  ge?: number | null,
+  gt?: number | null,
+  between?: Array< number | null > | null,
+};
+
 export type Story = {
   __typename: "Story",
   id: string,
@@ -67,46 +122,6 @@ export type ModelStoryFilterInput = {
 };
 
 export type ModelIDInput = {
-  ne?: string | null,
-  eq?: string | null,
-  le?: string | null,
-  lt?: string | null,
-  ge?: string | null,
-  gt?: string | null,
-  contains?: string | null,
-  notContains?: string | null,
-  between?: Array< string | null > | null,
-  beginsWith?: string | null,
-  attributeExists?: boolean | null,
-  attributeType?: ModelAttributeTypes | null,
-  size?: ModelSizeInput | null,
-};
-
-export enum ModelAttributeTypes {
-  binary = "binary",
-  binarySet = "binarySet",
-  bool = "bool",
-  list = "list",
-  map = "map",
-  number = "number",
-  numberSet = "numberSet",
-  string = "string",
-  stringSet = "stringSet",
-  _null = "_null",
-}
-
-
-export type ModelSizeInput = {
-  ne?: number | null,
-  eq?: number | null,
-  le?: number | null,
-  lt?: number | null,
-  ge?: number | null,
-  gt?: number | null,
-  between?: Array< number | null > | null,
-};
-
-export type ModelStringInput = {
   ne?: string | null,
   eq?: string | null,
   le?: string | null,
@@ -209,21 +224,6 @@ export type DeleteBlockInput = {
   _version?: number | null,
 };
 
-export type CreateStoryInput = {
-  id?: string | null,
-  name: string,
-  description?: string | null,
-  _version?: number | null,
-};
-
-export type ModelStoryConditionInput = {
-  name?: ModelStringInput | null,
-  description?: ModelStringInput | null,
-  and?: Array< ModelStoryConditionInput | null > | null,
-  or?: Array< ModelStoryConditionInput | null > | null,
-  not?: ModelStoryConditionInput | null,
-};
-
 export type UpdateStoryInput = {
   id: string,
   name?: string | null,
@@ -243,6 +243,20 @@ export type ModelChoiceFilterInput = {
   and?: Array< ModelChoiceFilterInput | null > | null,
   or?: Array< ModelChoiceFilterInput | null > | null,
   not?: ModelChoiceFilterInput | null,
+};
+
+export type CreateStory_customMutationVariables = {
+  input: CreateStoryInput,
+  condition?: ModelStoryConditionInput | null,
+};
+
+export type CreateStory_customMutation = {
+  createStory?:  {
+    __typename: "Story",
+    id: string,
+    name: string,
+    description?: string | null,
+  } | null,
 };
 
 export type GetStory_customQueryVariables = {

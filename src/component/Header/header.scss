@@ -1,0 +1,7 @@
+.header {
+  .nav-link {
+    &.active {
+      @apply border-b-4 border-gray-700;
+    }
+  }
+}
