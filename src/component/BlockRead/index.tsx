@@ -23,11 +23,7 @@ const BlockRead = ({ blocks }: Props): JSX.Element => {
       <p>{description}</p>
       <div className="my-3 flex gap-3 justify-center">
         {choices?.items.map((choice) => (
-          <button
-            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded"
-            key={choice.id}
-            onClick={() => handleBlockChange(choice.nextBlock?.id)}
-          >
+          <button key={choice.id} onClick={() => handleBlockChange(choice.nextBlock?.id)}>
             {choice.name}
           </button>
         ))}
