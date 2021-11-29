@@ -8,9 +8,6 @@ export const getChoice = /* GraphQL */ `
       id
       name
       blockID
-      _version
-      _deleted
-      _lastChangedAt
       createdAt
       updatedAt
       nextBlock {
@@ -19,9 +16,6 @@ export const getChoice = /* GraphQL */ `
         description
         storyID
         initial
-        _version
-        _deleted
-        _lastChangedAt
         createdAt
         updatedAt
         choices {
@@ -29,14 +23,10 @@ export const getChoice = /* GraphQL */ `
             id
             name
             blockID
-            _version
-            _deleted
-            _lastChangedAt
             createdAt
             updatedAt
           }
           nextToken
-          startedAt
         }
       }
     }
@@ -53,9 +43,6 @@ export const listChoices = /* GraphQL */ `
         id
         name
         blockID
-        _version
-        _deleted
-        _lastChangedAt
         createdAt
         updatedAt
         nextBlock {
@@ -64,63 +51,14 @@ export const listChoices = /* GraphQL */ `
           description
           storyID
           initial
-          _version
-          _deleted
-          _lastChangedAt
           createdAt
           updatedAt
           choices {
             nextToken
-            startedAt
           }
         }
       }
       nextToken
-      startedAt
-    }
-  }
-`;
-export const syncChoices = /* GraphQL */ `
-  query SyncChoices(
-    $filter: ModelChoiceFilterInput
-    $limit: Int
-    $nextToken: String
-    $lastSync: AWSTimestamp
-  ) {
-    syncChoices(
-      filter: $filter
-      limit: $limit
-      nextToken: $nextToken
-      lastSync: $lastSync
-    ) {
-      items {
-        id
-        name
-        blockID
-        _version
-        _deleted
-        _lastChangedAt
-        createdAt
-        updatedAt
-        nextBlock {
-          id
-          name
-          description
-          storyID
-          initial
-          _version
-          _deleted
-          _lastChangedAt
-          createdAt
-          updatedAt
-          choices {
-            nextToken
-            startedAt
-          }
-        }
-      }
-      nextToken
-      startedAt
     }
   }
 `;
@@ -132,9 +70,6 @@ export const getBlock = /* GraphQL */ `
       description
       storyID
       initial
-      _version
-      _deleted
-      _lastChangedAt
       createdAt
       updatedAt
       choices {
@@ -142,9 +77,6 @@ export const getBlock = /* GraphQL */ `
           id
           name
           blockID
-          _version
-          _deleted
-          _lastChangedAt
           createdAt
           updatedAt
           nextBlock {
@@ -153,15 +85,11 @@ export const getBlock = /* GraphQL */ `
             description
             storyID
             initial
-            _version
-            _deleted
-            _lastChangedAt
             createdAt
             updatedAt
           }
         }
         nextToken
-        startedAt
       }
     }
   }
@@ -179,9 +107,6 @@ export const listBlocks = /* GraphQL */ `
         description
         storyID
         initial
-        _version
-        _deleted
-        _lastChangedAt
         createdAt
         updatedAt
         choices {
@@ -189,62 +114,13 @@ export const listBlocks = /* GraphQL */ `
             id
             name
             blockID
-            _version
-            _deleted
-            _lastChangedAt
             createdAt
             updatedAt
           }
           nextToken
-          startedAt
         }
       }
       nextToken
-      startedAt
-    }
-  }
-`;
-export const syncBlocks = /* GraphQL */ `
-  query SyncBlocks(
-    $filter: ModelBlockFilterInput
-    $limit: Int
-    $nextToken: String
-    $lastSync: AWSTimestamp
-  ) {
-    syncBlocks(
-      filter: $filter
-      limit: $limit
-      nextToken: $nextToken
-      lastSync: $lastSync
-    ) {
-      items {
-        id
-        name
-        description
-        storyID
-        initial
-        _version
-        _deleted
-        _lastChangedAt
-        createdAt
-        updatedAt
-        choices {
-          items {
-            id
-            name
-            blockID
-            _version
-            _deleted
-            _lastChangedAt
-            createdAt
-            updatedAt
-          }
-          nextToken
-          startedAt
-        }
-      }
-      nextToken
-      startedAt
     }
   }
 `;
@@ -254,9 +130,6 @@ export const getStory = /* GraphQL */ `
       id
       name
       description
-      _version
-      _deleted
-      _lastChangedAt
       createdAt
       updatedAt
       blocks {
@@ -266,18 +139,13 @@ export const getStory = /* GraphQL */ `
           description
           storyID
           initial
-          _version
-          _deleted
-          _lastChangedAt
           createdAt
           updatedAt
           choices {
             nextToken
-            startedAt
           }
         }
         nextToken
-        startedAt
       }
     }
   }
@@ -293,9 +161,6 @@ export const listStorys = /* GraphQL */ `
         id
         name
         description
-        _version
-        _deleted
-        _lastChangedAt
         createdAt
         updatedAt
         blocks {
@@ -305,62 +170,13 @@ export const listStorys = /* GraphQL */ `
             description
             storyID
             initial
-            _version
-            _deleted
-            _lastChangedAt
             createdAt
             updatedAt
           }
           nextToken
-          startedAt
         }
       }
       nextToken
-      startedAt
-    }
-  }
-`;
-export const syncStories = /* GraphQL */ `
-  query SyncStories(
-    $filter: ModelStoryFilterInput
-    $limit: Int
-    $nextToken: String
-    $lastSync: AWSTimestamp
-  ) {
-    syncStories(
-      filter: $filter
-      limit: $limit
-      nextToken: $nextToken
-      lastSync: $lastSync
-    ) {
-      items {
-        id
-        name
-        description
-        _version
-        _deleted
-        _lastChangedAt
-        createdAt
-        updatedAt
-        blocks {
-          items {
-            id
-            name
-            description
-            storyID
-            initial
-            _version
-            _deleted
-            _lastChangedAt
-            createdAt
-            updatedAt
-          }
-          nextToken
-          startedAt
-        }
-      }
-      nextToken
-      startedAt
     }
   }
 `;

@@ -6,7 +6,6 @@ export type CreateStoryInput = {
   id?: string | null,
   name: string,
   description?: string | null,
-  _version?: number | null,
 };
 
 export type ModelStoryConditionInput = {
@@ -62,9 +61,6 @@ export type Story = {
   id: string,
   name: string,
   description?: string | null,
-  _version: number,
-  _deleted?: boolean | null,
-  _lastChangedAt: number,
   createdAt: string,
   updatedAt: string,
   blocks?: ModelBlockConnection | null,
@@ -74,7 +70,6 @@ export type ModelBlockConnection = {
   __typename: "ModelBlockConnection",
   items:  Array<Block >,
   nextToken?: string | null,
-  startedAt?: number | null,
 };
 
 export type Block = {
@@ -84,9 +79,6 @@ export type Block = {
   description?: string | null,
   storyID?: string | null,
   initial?: boolean | null,
-  _version: number,
-  _deleted?: boolean | null,
-  _lastChangedAt: number,
   createdAt: string,
   updatedAt: string,
   choices?: ModelChoiceConnection | null,
@@ -96,7 +88,6 @@ export type ModelChoiceConnection = {
   __typename: "ModelChoiceConnection",
   items:  Array<Choice >,
   nextToken?: string | null,
-  startedAt?: number | null,
 };
 
 export type Choice = {
@@ -104,12 +95,13 @@ export type Choice = {
   id: string,
   name?: string | null,
   blockID?: string | null,
-  _version: number,
-  _deleted?: boolean | null,
-  _lastChangedAt: number,
   createdAt: string,
   updatedAt: string,
   nextBlock?: Block | null,
+};
+
+export type DeleteStoryInput = {
+  id: string,
 };
 
 export type ModelStoryFilterInput = {
@@ -141,7 +133,6 @@ export type ModelStoryConnection = {
   __typename: "ModelStoryConnection",
   items:  Array<Story >,
   nextToken?: string | null,
-  startedAt?: number | null,
 };
 
 export type ModelBlockFilterInput = {
@@ -166,7 +157,6 @@ export type CreateChoiceInput = {
   id?: string | null,
   name?: string | null,
   blockID?: string | null,
-  _version?: number | null,
   choiceNextBlockId?: string | null,
 };
 
@@ -182,13 +172,11 @@ export type UpdateChoiceInput = {
   id: string,
   name?: string | null,
   blockID?: string | null,
-  _version?: number | null,
   choiceNextBlockId?: string | null,
 };
 
 export type DeleteChoiceInput = {
   id: string,
-  _version?: number | null,
 };
 
 export type CreateBlockInput = {
@@ -197,7 +185,6 @@ export type CreateBlockInput = {
   description?: string | null,
   storyID?: string | null,
   initial?: boolean | null,
-  _version?: number | null,
 };
 
 export type ModelBlockConditionInput = {
@@ -216,24 +203,16 @@ export type UpdateBlockInput = {
   description?: string | null,
   storyID?: string | null,
   initial?: boolean | null,
-  _version?: number | null,
 };
 
 export type DeleteBlockInput = {
   id: string,
-  _version?: number | null,
 };
 
 export type UpdateStoryInput = {
   id: string,
   name?: string | null,
   description?: string | null,
-  _version?: number | null,
-};
-
-export type DeleteStoryInput = {
-  id: string,
-  _version?: number | null,
 };
 
 export type ModelChoiceFilterInput = {
@@ -256,6 +235,19 @@ export type CreateStory_customMutation = {
     id: string,
     name: string,
     description?: string | null,
+  } | null,
+};
+
+export type DeleteStory_customMutationVariables = {
+  input: DeleteStoryInput,
+  condition?: ModelStoryConditionInput | null,
+};
+
+export type DeleteStory_customMutation = {
+  deleteStory?:  {
+    __typename: "Story",
+    id: string,
+    name: string,
   } | null,
 };
 
@@ -401,9 +393,6 @@ export type CreateChoiceMutation = {
     id: string,
     name?: string | null,
     blockID?: string | null,
-    _version: number,
-    _deleted?: boolean | null,
-    _lastChangedAt: number,
     createdAt: string,
     updatedAt: string,
     nextBlock?:  {
@@ -413,9 +402,6 @@ export type CreateChoiceMutation = {
       description?: string | null,
       storyID?: string | null,
       initial?: boolean | null,
-      _version: number,
-      _deleted?: boolean | null,
-      _lastChangedAt: number,
       createdAt: string,
       updatedAt: string,
       choices?:  {
@@ -425,14 +411,10 @@ export type CreateChoiceMutation = {
           id: string,
           name?: string | null,
           blockID?: string | null,
-          _version: number,
-          _deleted?: boolean | null,
-          _lastChangedAt: number,
           createdAt: string,
           updatedAt: string,
         } >,
         nextToken?: string | null,
-        startedAt?: number | null,
       } | null,
     } | null,
   } | null,
@@ -449,9 +431,6 @@ export type UpdateChoiceMutation = {
     id: string,
     name?: string | null,
     blockID?: string | null,
-    _version: number,
-    _deleted?: boolean | null,
-    _lastChangedAt: number,
     createdAt: string,
     updatedAt: string,
     nextBlock?:  {
@@ -461,9 +440,6 @@ export type UpdateChoiceMutation = {
       description?: string | null,
       storyID?: string | null,
       initial?: boolean | null,
-      _version: number,
-      _deleted?: boolean | null,
-      _lastChangedAt: number,
       createdAt: string,
       updatedAt: string,
       choices?:  {
@@ -473,14 +449,10 @@ export type UpdateChoiceMutation = {
           id: string,
           name?: string | null,
           blockID?: string | null,
-          _version: number,
-          _deleted?: boolean | null,
-          _lastChangedAt: number,
           createdAt: string,
           updatedAt: string,
         } >,
         nextToken?: string | null,
-        startedAt?: number | null,
       } | null,
     } | null,
   } | null,
@@ -497,9 +469,6 @@ export type DeleteChoiceMutation = {
     id: string,
     name?: string | null,
     blockID?: string | null,
-    _version: number,
-    _deleted?: boolean | null,
-    _lastChangedAt: number,
     createdAt: string,
     updatedAt: string,
     nextBlock?:  {
@@ -509,9 +478,6 @@ export type DeleteChoiceMutation = {
       description?: string | null,
       storyID?: string | null,
       initial?: boolean | null,
-      _version: number,
-      _deleted?: boolean | null,
-      _lastChangedAt: number,
       createdAt: string,
       updatedAt: string,
       choices?:  {
@@ -521,14 +487,10 @@ export type DeleteChoiceMutation = {
           id: string,
           name?: string | null,
           blockID?: string | null,
-          _version: number,
-          _deleted?: boolean | null,
-          _lastChangedAt: number,
           createdAt: string,
           updatedAt: string,
         } >,
         nextToken?: string | null,
-        startedAt?: number | null,
       } | null,
     } | null,
   } | null,
@@ -547,9 +509,6 @@ export type CreateBlockMutation = {
     description?: string | null,
     storyID?: string | null,
     initial?: boolean | null,
-    _version: number,
-    _deleted?: boolean | null,
-    _lastChangedAt: number,
     createdAt: string,
     updatedAt: string,
     choices?:  {
@@ -559,9 +518,6 @@ export type CreateBlockMutation = {
         id: string,
         name?: string | null,
         blockID?: string | null,
-        _version: number,
-        _deleted?: boolean | null,
-        _lastChangedAt: number,
         createdAt: string,
         updatedAt: string,
         nextBlock?:  {
@@ -571,15 +527,11 @@ export type CreateBlockMutation = {
           description?: string | null,
           storyID?: string | null,
           initial?: boolean | null,
-          _version: number,
-          _deleted?: boolean | null,
-          _lastChangedAt: number,
           createdAt: string,
           updatedAt: string,
         } | null,
       } >,
       nextToken?: string | null,
-      startedAt?: number | null,
     } | null,
   } | null,
 };
@@ -597,9 +549,6 @@ export type UpdateBlockMutation = {
     description?: string | null,
     storyID?: string | null,
     initial?: boolean | null,
-    _version: number,
-    _deleted?: boolean | null,
-    _lastChangedAt: number,
     createdAt: string,
     updatedAt: string,
     choices?:  {
@@ -609,9 +558,6 @@ export type UpdateBlockMutation = {
         id: string,
         name?: string | null,
         blockID?: string | null,
-        _version: number,
-        _deleted?: boolean | null,
-        _lastChangedAt: number,
         createdAt: string,
         updatedAt: string,
         nextBlock?:  {
@@ -621,15 +567,11 @@ export type UpdateBlockMutation = {
           description?: string | null,
           storyID?: string | null,
           initial?: boolean | null,
-          _version: number,
-          _deleted?: boolean | null,
-          _lastChangedAt: number,
           createdAt: string,
           updatedAt: string,
         } | null,
       } >,
       nextToken?: string | null,
-      startedAt?: number | null,
     } | null,
   } | null,
 };
@@ -647,9 +589,6 @@ export type DeleteBlockMutation = {
     description?: string | null,
     storyID?: string | null,
     initial?: boolean | null,
-    _version: number,
-    _deleted?: boolean | null,
-    _lastChangedAt: number,
     createdAt: string,
     updatedAt: string,
     choices?:  {
@@ -659,9 +598,6 @@ export type DeleteBlockMutation = {
         id: string,
         name?: string | null,
         blockID?: string | null,
-        _version: number,
-        _deleted?: boolean | null,
-        _lastChangedAt: number,
         createdAt: string,
         updatedAt: string,
         nextBlock?:  {
@@ -671,15 +607,11 @@ export type DeleteBlockMutation = {
           description?: string | null,
           storyID?: string | null,
           initial?: boolean | null,
-          _version: number,
-          _deleted?: boolean | null,
-          _lastChangedAt: number,
           createdAt: string,
           updatedAt: string,
         } | null,
       } >,
       nextToken?: string | null,
-      startedAt?: number | null,
     } | null,
   } | null,
 };
@@ -695,9 +627,6 @@ export type CreateStoryMutation = {
     id: string,
     name: string,
     description?: string | null,
-    _version: number,
-    _deleted?: boolean | null,
-    _lastChangedAt: number,
     createdAt: string,
     updatedAt: string,
     blocks?:  {
@@ -709,19 +638,14 @@ export type CreateStoryMutation = {
         description?: string | null,
         storyID?: string | null,
         initial?: boolean | null,
-        _version: number,
-        _deleted?: boolean | null,
-        _lastChangedAt: number,
         createdAt: string,
         updatedAt: string,
         choices?:  {
           __typename: "ModelChoiceConnection",
           nextToken?: string | null,
-          startedAt?: number | null,
         } | null,
       } >,
       nextToken?: string | null,
-      startedAt?: number | null,
     } | null,
   } | null,
 };
@@ -737,9 +661,6 @@ export type UpdateStoryMutation = {
     id: string,
     name: string,
     description?: string | null,
-    _version: number,
-    _deleted?: boolean | null,
-    _lastChangedAt: number,
     createdAt: string,
     updatedAt: string,
     blocks?:  {
@@ -751,19 +672,14 @@ export type UpdateStoryMutation = {
         description?: string | null,
         storyID?: string | null,
         initial?: boolean | null,
-        _version: number,
-        _deleted?: boolean | null,
-        _lastChangedAt: number,
         createdAt: string,
         updatedAt: string,
         choices?:  {
           __typename: "ModelChoiceConnection",
           nextToken?: string | null,
-          startedAt?: number | null,
         } | null,
       } >,
       nextToken?: string | null,
-      startedAt?: number | null,
     } | null,
   } | null,
 };
@@ -779,9 +695,6 @@ export type DeleteStoryMutation = {
     id: string,
     name: string,
     description?: string | null,
-    _version: number,
-    _deleted?: boolean | null,
-    _lastChangedAt: number,
     createdAt: string,
     updatedAt: string,
     blocks?:  {
@@ -793,19 +706,14 @@ export type DeleteStoryMutation = {
         description?: string | null,
         storyID?: string | null,
         initial?: boolean | null,
-        _version: number,
-        _deleted?: boolean | null,
-        _lastChangedAt: number,
         createdAt: string,
         updatedAt: string,
         choices?:  {
           __typename: "ModelChoiceConnection",
           nextToken?: string | null,
-          startedAt?: number | null,
         } | null,
       } >,
       nextToken?: string | null,
-      startedAt?: number | null,
     } | null,
   } | null,
 };
@@ -820,9 +728,6 @@ export type GetChoiceQuery = {
     id: string,
     name?: string | null,
     blockID?: string | null,
-    _version: number,
-    _deleted?: boolean | null,
-    _lastChangedAt: number,
     createdAt: string,
     updatedAt: string,
     nextBlock?:  {
@@ -832,9 +737,6 @@ export type GetChoiceQuery = {
       description?: string | null,
       storyID?: string | null,
       initial?: boolean | null,
-      _version: number,
-      _deleted?: boolean | null,
-      _lastChangedAt: number,
       createdAt: string,
       updatedAt: string,
       choices?:  {
@@ -844,14 +746,10 @@ export type GetChoiceQuery = {
           id: string,
           name?: string | null,
           blockID?: string | null,
-          _version: number,
-          _deleted?: boolean | null,
-          _lastChangedAt: number,
           createdAt: string,
           updatedAt: string,
         } >,
         nextToken?: string | null,
-        startedAt?: number | null,
       } | null,
     } | null,
   } | null,
@@ -871,9 +769,6 @@ export type ListChoicesQuery = {
       id: string,
       name?: string | null,
       blockID?: string | null,
-      _version: number,
-      _deleted?: boolean | null,
-      _lastChangedAt: number,
       createdAt: string,
       updatedAt: string,
       nextBlock?:  {
@@ -883,64 +778,15 @@ export type ListChoicesQuery = {
         description?: string | null,
         storyID?: string | null,
         initial?: boolean | null,
-        _version: number,
-        _deleted?: boolean | null,
-        _lastChangedAt: number,
         createdAt: string,
         updatedAt: string,
         choices?:  {
           __typename: "ModelChoiceConnection",
           nextToken?: string | null,
-          startedAt?: number | null,
         } | null,
       } | null,
     } >,
     nextToken?: string | null,
-    startedAt?: number | null,
-  } | null,
-};
-
-export type SyncChoicesQueryVariables = {
-  filter?: ModelChoiceFilterInput | null,
-  limit?: number | null,
-  nextToken?: string | null,
-  lastSync?: number | null,
-};
-
-export type SyncChoicesQuery = {
-  syncChoices?:  {
-    __typename: "ModelChoiceConnection",
-    items:  Array< {
-      __typename: "Choice",
-      id: string,
-      name?: string | null,
-      blockID?: string | null,
-      _version: number,
-      _deleted?: boolean | null,
-      _lastChangedAt: number,
-      createdAt: string,
-      updatedAt: string,
-      nextBlock?:  {
-        __typename: "Block",
-        id: string,
-        name?: string | null,
-        description?: string | null,
-        storyID?: string | null,
-        initial?: boolean | null,
-        _version: number,
-        _deleted?: boolean | null,
-        _lastChangedAt: number,
-        createdAt: string,
-        updatedAt: string,
-        choices?:  {
-          __typename: "ModelChoiceConnection",
-          nextToken?: string | null,
-          startedAt?: number | null,
-        } | null,
-      } | null,
-    } >,
-    nextToken?: string | null,
-    startedAt?: number | null,
   } | null,
 };
 
@@ -956,9 +802,6 @@ export type GetBlockQuery = {
     description?: string | null,
     storyID?: string | null,
     initial?: boolean | null,
-    _version: number,
-    _deleted?: boolean | null,
-    _lastChangedAt: number,
     createdAt: string,
     updatedAt: string,
     choices?:  {
@@ -968,9 +811,6 @@ export type GetBlockQuery = {
         id: string,
         name?: string | null,
         blockID?: string | null,
-        _version: number,
-        _deleted?: boolean | null,
-        _lastChangedAt: number,
         createdAt: string,
         updatedAt: string,
         nextBlock?:  {
@@ -980,15 +820,11 @@ export type GetBlockQuery = {
           description?: string | null,
           storyID?: string | null,
           initial?: boolean | null,
-          _version: number,
-          _deleted?: boolean | null,
-          _lastChangedAt: number,
           createdAt: string,
           updatedAt: string,
         } | null,
       } >,
       nextToken?: string | null,
-      startedAt?: number | null,
     } | null,
   } | null,
 };
@@ -1009,9 +845,6 @@ export type ListBlocksQuery = {
       description?: string | null,
       storyID?: string | null,
       initial?: boolean | null,
-      _version: number,
-      _deleted?: boolean | null,
-      _lastChangedAt: number,
       createdAt: string,
       updatedAt: string,
       choices?:  {
@@ -1021,62 +854,13 @@ export type ListBlocksQuery = {
           id: string,
           name?: string | null,
           blockID?: string | null,
-          _version: number,
-          _deleted?: boolean | null,
-          _lastChangedAt: number,
           createdAt: string,
           updatedAt: string,
         } >,
         nextToken?: string | null,
-        startedAt?: number | null,
       } | null,
     } >,
     nextToken?: string | null,
-    startedAt?: number | null,
-  } | null,
-};
-
-export type SyncBlocksQueryVariables = {
-  filter?: ModelBlockFilterInput | null,
-  limit?: number | null,
-  nextToken?: string | null,
-  lastSync?: number | null,
-};
-
-export type SyncBlocksQuery = {
-  syncBlocks?:  {
-    __typename: "ModelBlockConnection",
-    items:  Array< {
-      __typename: "Block",
-      id: string,
-      name?: string | null,
-      description?: string | null,
-      storyID?: string | null,
-      initial?: boolean | null,
-      _version: number,
-      _deleted?: boolean | null,
-      _lastChangedAt: number,
-      createdAt: string,
-      updatedAt: string,
-      choices?:  {
-        __typename: "ModelChoiceConnection",
-        items:  Array< {
-          __typename: "Choice",
-          id: string,
-          name?: string | null,
-          blockID?: string | null,
-          _version: number,
-          _deleted?: boolean | null,
-          _lastChangedAt: number,
-          createdAt: string,
-          updatedAt: string,
-        } >,
-        nextToken?: string | null,
-        startedAt?: number | null,
-      } | null,
-    } >,
-    nextToken?: string | null,
-    startedAt?: number | null,
   } | null,
 };
 
@@ -1090,9 +874,6 @@ export type GetStoryQuery = {
     id: string,
     name: string,
     description?: string | null,
-    _version: number,
-    _deleted?: boolean | null,
-    _lastChangedAt: number,
     createdAt: string,
     updatedAt: string,
     blocks?:  {
@@ -1104,19 +885,14 @@ export type GetStoryQuery = {
         description?: string | null,
         storyID?: string | null,
         initial?: boolean | null,
-        _version: number,
-        _deleted?: boolean | null,
-        _lastChangedAt: number,
         createdAt: string,
         updatedAt: string,
         choices?:  {
           __typename: "ModelChoiceConnection",
           nextToken?: string | null,
-          startedAt?: number | null,
         } | null,
       } >,
       nextToken?: string | null,
-      startedAt?: number | null,
     } | null,
   } | null,
 };
@@ -1135,9 +911,6 @@ export type ListStorysQuery = {
       id: string,
       name: string,
       description?: string | null,
-      _version: number,
-      _deleted?: boolean | null,
-      _lastChangedAt: number,
       createdAt: string,
       updatedAt: string,
       blocks?:  {
@@ -1149,62 +922,13 @@ export type ListStorysQuery = {
           description?: string | null,
           storyID?: string | null,
           initial?: boolean | null,
-          _version: number,
-          _deleted?: boolean | null,
-          _lastChangedAt: number,
           createdAt: string,
           updatedAt: string,
         } >,
         nextToken?: string | null,
-        startedAt?: number | null,
       } | null,
     } >,
     nextToken?: string | null,
-    startedAt?: number | null,
-  } | null,
-};
-
-export type SyncStoriesQueryVariables = {
-  filter?: ModelStoryFilterInput | null,
-  limit?: number | null,
-  nextToken?: string | null,
-  lastSync?: number | null,
-};
-
-export type SyncStoriesQuery = {
-  syncStories?:  {
-    __typename: "ModelStoryConnection",
-    items:  Array< {
-      __typename: "Story",
-      id: string,
-      name: string,
-      description?: string | null,
-      _version: number,
-      _deleted?: boolean | null,
-      _lastChangedAt: number,
-      createdAt: string,
-      updatedAt: string,
-      blocks?:  {
-        __typename: "ModelBlockConnection",
-        items:  Array< {
-          __typename: "Block",
-          id: string,
-          name?: string | null,
-          description?: string | null,
-          storyID?: string | null,
-          initial?: boolean | null,
-          _version: number,
-          _deleted?: boolean | null,
-          _lastChangedAt: number,
-          createdAt: string,
-          updatedAt: string,
-        } >,
-        nextToken?: string | null,
-        startedAt?: number | null,
-      } | null,
-    } >,
-    nextToken?: string | null,
-    startedAt?: number | null,
   } | null,
 };
 
@@ -1214,9 +938,6 @@ export type OnCreateChoiceSubscription = {
     id: string,
     name?: string | null,
     blockID?: string | null,
-    _version: number,
-    _deleted?: boolean | null,
-    _lastChangedAt: number,
     createdAt: string,
     updatedAt: string,
     nextBlock?:  {
@@ -1226,9 +947,6 @@ export type OnCreateChoiceSubscription = {
       description?: string | null,
       storyID?: string | null,
       initial?: boolean | null,
-      _version: number,
-      _deleted?: boolean | null,
-      _lastChangedAt: number,
       createdAt: string,
       updatedAt: string,
       choices?:  {
@@ -1238,14 +956,10 @@ export type OnCreateChoiceSubscription = {
           id: string,
           name?: string | null,
           blockID?: string | null,
-          _version: number,
-          _deleted?: boolean | null,
-          _lastChangedAt: number,
           createdAt: string,
           updatedAt: string,
         } >,
         nextToken?: string | null,
-        startedAt?: number | null,
       } | null,
     } | null,
   } | null,
@@ -1257,9 +971,6 @@ export type OnUpdateChoiceSubscription = {
     id: string,
     name?: string | null,
     blockID?: string | null,
-    _version: number,
-    _deleted?: boolean | null,
-    _lastChangedAt: number,
     createdAt: string,
     updatedAt: string,
     nextBlock?:  {
@@ -1269,9 +980,6 @@ export type OnUpdateChoiceSubscription = {
       description?: string | null,
       storyID?: string | null,
       initial?: boolean | null,
-      _version: number,
-      _deleted?: boolean | null,
-      _lastChangedAt: number,
       createdAt: string,
       updatedAt: string,
       choices?:  {
@@ -1281,14 +989,10 @@ export type OnUpdateChoiceSubscription = {
           id: string,
           name?: string | null,
           blockID?: string | null,
-          _version: number,
-          _deleted?: boolean | null,
-          _lastChangedAt: number,
           createdAt: string,
           updatedAt: string,
         } >,
         nextToken?: string | null,
-        startedAt?: number | null,
       } | null,
     } | null,
   } | null,
@@ -1300,9 +1004,6 @@ export type OnDeleteChoiceSubscription = {
     id: string,
     name?: string | null,
     blockID?: string | null,
-    _version: number,
-    _deleted?: boolean | null,
-    _lastChangedAt: number,
     createdAt: string,
     updatedAt: string,
     nextBlock?:  {
@@ -1312,9 +1013,6 @@ export type OnDeleteChoiceSubscription = {
       description?: string | null,
       storyID?: string | null,
       initial?: boolean | null,
-      _version: number,
-      _deleted?: boolean | null,
-      _lastChangedAt: number,
       createdAt: string,
       updatedAt: string,
       choices?:  {
@@ -1324,14 +1022,10 @@ export type OnDeleteChoiceSubscription = {
           id: string,
           name?: string | null,
           blockID?: string | null,
-          _version: number,
-          _deleted?: boolean | null,
-          _lastChangedAt: number,
           createdAt: string,
           updatedAt: string,
         } >,
         nextToken?: string | null,
-        startedAt?: number | null,
       } | null,
     } | null,
   } | null,
@@ -1345,9 +1039,6 @@ export type OnCreateBlockSubscription = {
     description?: string | null,
     storyID?: string | null,
     initial?: boolean | null,
-    _version: number,
-    _deleted?: boolean | null,
-    _lastChangedAt: number,
     createdAt: string,
     updatedAt: string,
     choices?:  {
@@ -1357,9 +1048,6 @@ export type OnCreateBlockSubscription = {
         id: string,
         name?: string | null,
         blockID?: string | null,
-        _version: number,
-        _deleted?: boolean | null,
-        _lastChangedAt: number,
         createdAt: string,
         updatedAt: string,
         nextBlock?:  {
@@ -1369,15 +1057,11 @@ export type OnCreateBlockSubscription = {
           description?: string | null,
           storyID?: string | null,
           initial?: boolean | null,
-          _version: number,
-          _deleted?: boolean | null,
-          _lastChangedAt: number,
           createdAt: string,
           updatedAt: string,
         } | null,
       } >,
       nextToken?: string | null,
-      startedAt?: number | null,
     } | null,
   } | null,
 };
@@ -1390,9 +1074,6 @@ export type OnUpdateBlockSubscription = {
     description?: string | null,
     storyID?: string | null,
     initial?: boolean | null,
-    _version: number,
-    _deleted?: boolean | null,
-    _lastChangedAt: number,
     createdAt: string,
     updatedAt: string,
     choices?:  {
@@ -1402,9 +1083,6 @@ export type OnUpdateBlockSubscription = {
         id: string,
         name?: string | null,
         blockID?: string | null,
-        _version: number,
-        _deleted?: boolean | null,
-        _lastChangedAt: number,
         createdAt: string,
         updatedAt: string,
         nextBlock?:  {
@@ -1414,15 +1092,11 @@ export type OnUpdateBlockSubscription = {
           description?: string | null,
           storyID?: string | null,
           initial?: boolean | null,
-          _version: number,
-          _deleted?: boolean | null,
-          _lastChangedAt: number,
           createdAt: string,
           updatedAt: string,
         } | null,
       } >,
       nextToken?: string | null,
-      startedAt?: number | null,
     } | null,
   } | null,
 };
@@ -1435,9 +1109,6 @@ export type OnDeleteBlockSubscription = {
     description?: string | null,
     storyID?: string | null,
     initial?: boolean | null,
-    _version: number,
-    _deleted?: boolean | null,
-    _lastChangedAt: number,
     createdAt: string,
     updatedAt: string,
     choices?:  {
@@ -1447,9 +1118,6 @@ export type OnDeleteBlockSubscription = {
         id: string,
         name?: string | null,
         blockID?: string | null,
-        _version: number,
-        _deleted?: boolean | null,
-        _lastChangedAt: number,
         createdAt: string,
         updatedAt: string,
         nextBlock?:  {
@@ -1459,15 +1127,11 @@ export type OnDeleteBlockSubscription = {
           description?: string | null,
           storyID?: string | null,
           initial?: boolean | null,
-          _version: number,
-          _deleted?: boolean | null,
-          _lastChangedAt: number,
           createdAt: string,
           updatedAt: string,
         } | null,
       } >,
       nextToken?: string | null,
-      startedAt?: number | null,
     } | null,
   } | null,
 };
@@ -1478,9 +1142,6 @@ export type OnCreateStorySubscription = {
     id: string,
     name: string,
     description?: string | null,
-    _version: number,
-    _deleted?: boolean | null,
-    _lastChangedAt: number,
     createdAt: string,
     updatedAt: string,
     blocks?:  {
@@ -1492,19 +1153,14 @@ export type OnCreateStorySubscription = {
         description?: string | null,
         storyID?: string | null,
         initial?: boolean | null,
-        _version: number,
-        _deleted?: boolean | null,
-        _lastChangedAt: number,
         createdAt: string,
         updatedAt: string,
         choices?:  {
           __typename: "ModelChoiceConnection",
           nextToken?: string | null,
-          startedAt?: number | null,
         } | null,
       } >,
       nextToken?: string | null,
-      startedAt?: number | null,
     } | null,
   } | null,
 };
@@ -1515,9 +1171,6 @@ export type OnUpdateStorySubscription = {
     id: string,
     name: string,
     description?: string | null,
-    _version: number,
-    _deleted?: boolean | null,
-    _lastChangedAt: number,
     createdAt: string,
     updatedAt: string,
     blocks?:  {
@@ -1529,19 +1182,14 @@ export type OnUpdateStorySubscription = {
         description?: string | null,
         storyID?: string | null,
         initial?: boolean | null,
-        _version: number,
-        _deleted?: boolean | null,
-        _lastChangedAt: number,
         createdAt: string,
         updatedAt: string,
         choices?:  {
           __typename: "ModelChoiceConnection",
           nextToken?: string | null,
-          startedAt?: number | null,
         } | null,
       } >,
       nextToken?: string | null,
-      startedAt?: number | null,
     } | null,
   } | null,
 };
@@ -1552,9 +1200,6 @@ export type OnDeleteStorySubscription = {
     id: string,
     name: string,
     description?: string | null,
-    _version: number,
-    _deleted?: boolean | null,
-    _lastChangedAt: number,
     createdAt: string,
     updatedAt: string,
     blocks?:  {
@@ -1566,19 +1211,14 @@ export type OnDeleteStorySubscription = {
         description?: string | null,
         storyID?: string | null,
         initial?: boolean | null,
-        _version: number,
-        _deleted?: boolean | null,
-        _lastChangedAt: number,
         createdAt: string,
         updatedAt: string,
         choices?:  {
           __typename: "ModelChoiceConnection",
           nextToken?: string | null,
-          startedAt?: number | null,
         } | null,
       } >,
       nextToken?: string | null,
-      startedAt?: number | null,
     } | null,
   } | null,
 };
