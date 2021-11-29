@@ -11,9 +11,6 @@ export const createChoice = /* GraphQL */ `
       id
       name
       blockID
-      _version
-      _deleted
-      _lastChangedAt
       createdAt
       updatedAt
       nextBlock {
@@ -22,9 +19,6 @@ export const createChoice = /* GraphQL */ `
         description
         storyID
         initial
-        _version
-        _deleted
-        _lastChangedAt
         createdAt
         updatedAt
         choices {
@@ -32,14 +26,10 @@ export const createChoice = /* GraphQL */ `
             id
             name
             blockID
-            _version
-            _deleted
-            _lastChangedAt
             createdAt
             updatedAt
           }
           nextToken
-          startedAt
         }
       }
     }
@@ -54,9 +44,6 @@ export const updateChoice = /* GraphQL */ `
       id
       name
       blockID
-      _version
-      _deleted
-      _lastChangedAt
       createdAt
       updatedAt
       nextBlock {
@@ -65,9 +52,6 @@ export const updateChoice = /* GraphQL */ `
         description
         storyID
         initial
-        _version
-        _deleted
-        _lastChangedAt
         createdAt
         updatedAt
         choices {
@@ -75,14 +59,10 @@ export const updateChoice = /* GraphQL */ `
             id
             name
             blockID
-            _version
-            _deleted
-            _lastChangedAt
             createdAt
             updatedAt
           }
           nextToken
-          startedAt
         }
       }
     }
@@ -97,9 +77,6 @@ export const deleteChoice = /* GraphQL */ `
       id
       name
       blockID
-      _version
-      _deleted
-      _lastChangedAt
       createdAt
       updatedAt
       nextBlock {
@@ -108,9 +85,6 @@ export const deleteChoice = /* GraphQL */ `
         description
         storyID
         initial
-        _version
-        _deleted
-        _lastChangedAt
         createdAt
         updatedAt
         choices {
@@ -118,14 +92,10 @@ export const deleteChoice = /* GraphQL */ `
             id
             name
             blockID
-            _version
-            _deleted
-            _lastChangedAt
             createdAt
             updatedAt
           }
           nextToken
-          startedAt
         }
       }
     }
@@ -142,9 +112,6 @@ export const createBlock = /* GraphQL */ `
       description
       storyID
       initial
-      _version
-      _deleted
-      _lastChangedAt
       createdAt
       updatedAt
       choices {
@@ -152,9 +119,6 @@ export const createBlock = /* GraphQL */ `
           id
           name
           blockID
-          _version
-          _deleted
-          _lastChangedAt
           createdAt
           updatedAt
           nextBlock {
@@ -163,15 +127,11 @@ export const createBlock = /* GraphQL */ `
             description
             storyID
             initial
-            _version
-            _deleted
-            _lastChangedAt
             createdAt
             updatedAt
           }
         }
         nextToken
-        startedAt
       }
     }
   }
@@ -187,9 +147,6 @@ export const updateBlock = /* GraphQL */ `
       description
       storyID
       initial
-      _version
-      _deleted
-      _lastChangedAt
       createdAt
       updatedAt
       choices {
@@ -197,9 +154,6 @@ export const updateBlock = /* GraphQL */ `
           id
           name
           blockID
-          _version
-          _deleted
-          _lastChangedAt
           createdAt
           updatedAt
           nextBlock {
@@ -208,15 +162,11 @@ export const updateBlock = /* GraphQL */ `
             description
             storyID
             initial
-            _version
-            _deleted
-            _lastChangedAt
             createdAt
             updatedAt
           }
         }
         nextToken
-        startedAt
       }
     }
   }
@@ -232,9 +182,6 @@ export const deleteBlock = /* GraphQL */ `
       description
       storyID
       initial
-      _version
-      _deleted
-      _lastChangedAt
       createdAt
       updatedAt
       choices {
@@ -242,9 +189,6 @@ export const deleteBlock = /* GraphQL */ `
           id
           name
           blockID
-          _version
-          _deleted
-          _lastChangedAt
           createdAt
           updatedAt
           nextBlock {
@@ -253,15 +197,11 @@ export const deleteBlock = /* GraphQL */ `
             description
             storyID
             initial
-            _version
-            _deleted
-            _lastChangedAt
             createdAt
             updatedAt
           }
         }
         nextToken
-        startedAt
       }
     }
   }
@@ -275,9 +215,6 @@ export const createStory = /* GraphQL */ `
       id
       name
       description
-      _version
-      _deleted
-      _lastChangedAt
       createdAt
       updatedAt
       blocks {
@@ -287,18 +224,13 @@ export const createStory = /* GraphQL */ `
           description
           storyID
           initial
-          _version
-          _deleted
-          _lastChangedAt
           createdAt
           updatedAt
           choices {
             nextToken
-            startedAt
           }
         }
         nextToken
-        startedAt
       }
     }
   }
@@ -312,9 +244,6 @@ export const updateStory = /* GraphQL */ `
       id
       name
       description
-      _version
-      _deleted
-      _lastChangedAt
       createdAt
       updatedAt
       blocks {
@@ -324,18 +253,13 @@ export const updateStory = /* GraphQL */ `
           description
           storyID
           initial
-          _version
-          _deleted
-          _lastChangedAt
           createdAt
           updatedAt
           choices {
             nextToken
-            startedAt
           }
         }
         nextToken
-        startedAt
       }
     }
   }
@@ -349,9 +273,6 @@ export const deleteStory = /* GraphQL */ `
       id
       name
       description
-      _version
-      _deleted
-      _lastChangedAt
       createdAt
       updatedAt
       blocks {
@@ -361,18 +282,13 @@ export const deleteStory = /* GraphQL */ `
           description
           storyID
           initial
-          _version
-          _deleted
-          _lastChangedAt
           createdAt
           updatedAt
           choices {
             nextToken
-            startedAt
           }
         }
         nextToken
-        startedAt
       }
     }
   }

@@ -6,7 +6,7 @@ type Props = {
 
 const Layout = ({ children }: Props): JSX.Element => {
   return (
-    <div className="h-screen flex flex-col bg-black text-white">
+    <div className="min-h-screen flex flex-col bg-black text-white">
       <Header />
       <div className="p-3 max-w-screen-lg container mx-auto">{children}</div>
     </div>

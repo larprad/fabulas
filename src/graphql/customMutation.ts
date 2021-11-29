@@ -7,3 +7,12 @@ export const createStory = /* GraphQL */ `
     }
   }
 `
+
+export const deleteStory = /* GraphQL */ `
+  mutation DeleteStory_custom($input: DeleteStoryInput!, $condition: ModelStoryConditionInput) {
+    deleteStory(input: $input, condition: $condition) {
+      id
+      name
+    }
+  }
+`
