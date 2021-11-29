@@ -20,4 +20,4 @@ type Story @model @auth(rules: [{allow: public}]) {
   description: String
   blocks: [Block] @connection(keyName: "byStory", fields: ["id"])
 }
- 
+  
