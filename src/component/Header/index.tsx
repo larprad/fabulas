@@ -10,6 +10,11 @@ const Header = (): JSX.Element => {
       <nav>
         <ul className="h-full flex items-end gap-5">
           <li>
+            <NavLink className="nav-link" to={ROUTES.LOGIN}>
+              Login
+            </NavLink>
+          </li>
+          <li>
             <NavLink className="nav-link" to={ROUTES.HOME}>
               Home
             </NavLink>
