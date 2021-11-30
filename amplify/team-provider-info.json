@@ -10,6 +10,11 @@
       "StackName": "amplify-fabulas-staging-182757",
       "StackId": "arn:aws:cloudformation:eu-west-3:371394413382:stack/amplify-fabulas-staging-182757/95e00e50-4a2f-11ec-a6cd-061214797aec",
       "AmplifyAppId": "d1egu385apaw1d"
+    },
+    "categories": {
+      "auth": {
+        "fabulas": {}
+      }
     }
   }
 }

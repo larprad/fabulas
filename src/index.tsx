@@ -4,6 +4,7 @@ import reportWebVitals from './reportWebVitals'
 import { BrowserRouter } from 'react-router-dom'
 
 import App from './component/App/App'
+import AuthProvider from './state/Auth/AuthProvider'
 import './assets/style/index.scss'
 
 import Amplify from 'aws-amplify'
@@ -18,7 +19,9 @@ ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
       <QueryClientProvider client={queryClient}>
-        <App />
+        <AuthProvider>
+          <App />
+        </AuthProvider>
       </QueryClientProvider>
     </BrowserRouter>
   </React.StrictMode>,
