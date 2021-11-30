@@ -2,15 +2,17 @@ import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
 import Heading from '../../component/Heading'
 import { ROUTES } from '../../constants'
-import { Auth } from 'aws-amplify'
+
+import { useAuthContext } from '../../state/Auth/AuthContext'
 
 type FormType = {
-  username: string
+  email: string
   password: string
 }
 
 const Login = (): JSX.Element => {
   const navigate = useNavigate()
+  const { login } = useAuthContext()
   const defaultFormData = {
     username: '',
     password: '',
@@ -19,10 +21,9 @@ const Login = (): JSX.Element => {
   const handleGoSubscribe = () => {
     navigate(ROUTES.SUBSCRIBE)
   }
-  const handleLogin = ({ username, password }: FormType) => {
-    Auth.signIn(username, password)
-      .then((user) => console.log(user))
-      .catch((error) => console.error(error))
+  const handleLogin = ({ email, password }: FormType) => {
+    login({ email, password })
+    reset()
   }
   const handleReset = () => {
     reset()
@@ -32,8 +33,8 @@ const Login = (): JSX.Element => {
     <div>
       <Heading title="Connexion" />
       <form onSubmit={handleSubmit(handleLogin)} className="flex flex-col gap-3">
-        <label htmlFor="username">Email</label>
-        <input type="text" id="username" {...register('username', { required: true })} />
+        <label htmlFor="email">Email</label>
+        <input type="text" id="email" {...register('email', { required: true })} />
         <label htmlFor="password">Mot de passe</label>
         <input type="text" id="password" {...register('password', { required: true })} />
         <div className="flex gap-3 w-100">

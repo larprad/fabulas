@@ -2,7 +2,7 @@ import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
 import Heading from '../../component/Heading'
 import { ROUTES } from '../../constants'
-import { Auth } from 'aws-amplify'
+import { useAuthContext } from '../../state/Auth/AuthContext'
 
 type FormType = {
   username: string
@@ -12,20 +12,22 @@ type FormType = {
 
 const Subscribe = (): JSX.Element => {
   const navigate = useNavigate()
+  const { signUp } = useAuthContext()
   const defaultFormData = {
     username: '',
     password: '',
     nickname: '',
   }
+
   const { handleSubmit, register, reset } = useForm<FormType>({ defaultValues: defaultFormData })
   const handleQuit = () => {
     navigate(ROUTES.HOME)
   }
+
   const handleSubscribe = ({ username, password, nickname }: FormType) => {
-    Auth.signUp(username, password, nickname)
-      .then((user) => console.log(user))
-      .catch((error) => console.error(error))
+    signUp({ username, password, nickname })
   }
+
   const handleReset = () => {
     reset()
   }
