@@ -38,6 +38,7 @@ const AuthProvider: React.FC = ({ children }) => {
   const signUp = ({ username, password, nickname }: { username: string; password: string; nickname: string }) => {
     setLoading(true)
     Auth.signUp({ username, password, attributes: { nickname } })
+      .then(() => login({ email: username, password }))
       .catch((error) => console.error(error))
       .finally(() => setLoading(false))
   }

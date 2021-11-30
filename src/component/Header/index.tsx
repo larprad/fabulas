@@ -12,16 +12,6 @@ const Header = (): JSX.Element => {
       <nav className="flex gap-3 flex-grow justify-between">
         <ul className="h-full flex items-end gap-5">
           <li>
-            <NavLink className="nav-link" to={ROUTES.LOGIN}>
-              Connexion
-            </NavLink>
-          </li>
-          <li>
-            <NavLink className="nav-link" to={ROUTES.SUBSCRIBE}>
-              Inscription
-            </NavLink>
-          </li>
-          <li>
             <NavLink className="nav-link" to={ROUTES.HOME}>
               Home
             </NavLink>
@@ -37,10 +27,23 @@ const Header = (): JSX.Element => {
             </NavLink>
           </li>
         </ul>
-        {isLoggedIn && (
+        {isLoggedIn ? (
           <div className="flex gap-3 items-end">
             <p>{userName} est connecté</p> <button onClick={logout}>Deconnexion</button>
           </div>
+        ) : (
+          <ul className="h-full flex items-end gap-5">
+            <li>
+              <NavLink className="nav-link" to={ROUTES.LOGIN}>
+                Connexion
+              </NavLink>
+            </li>
+            <li>
+              <NavLink className="nav-link" to={ROUTES.SUBSCRIBE}>
+                Inscription
+              </NavLink>
+            </li>
+          </ul>
         )}
       </nav>
     </header>
